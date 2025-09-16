@@ -34,6 +34,7 @@ main {
 .default-content {
     display: flex;
     justify-content: center;
+    align-items: end;
     width: 1440px;
     height: 100%;
 }

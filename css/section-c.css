@@ -1,0 +1,167 @@
+#sec-c {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sc-title {
+    padding: 10px 0px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--cf-green);
+}
+
+.sc-content {
+    max-width: 1440px;
+    display: flex;
+    justify-content: space-between;
+    background: url("../img/MKT-CF-抗癌嘉年華活動頁面_捧愛心的人-250910-3-010-03-03.png") no-repeat 40% center/auto 80%;
+    padding: 20px 40px;
+}
+
+.sc-content * {
+    padding: 10px;
+}
+
+
+
+.sc-circle-img {
+    width: 300px;
+    /* 調整大小 */
+    height: 300px;
+    /* 寬高一樣才能變成完美圓形 */
+    border-radius: 50%;
+    /* 圓形 */
+    object-fit: cover;
+    /* contain：完整顯示，會保留比例 */
+    object-position: center;
+    /* 置中顯示 */
+    display: block;
+    /* 方便 margin:auto 置中區塊 */
+    margin: 0 auto;
+    /* 若要外層置中 */
+    background-color: #ffffff37;
+    /* 可選，避免透明區看起來怪 */
+    padding: 1px;
+}
+
+.sc-l {
+    text-align: center;
+    padding-right: 250px;
+    padding-top: 50px;
+}
+
+.sc-r {
+    letter-spacing: 4px;
+}
+
+.scl-txt3,
+.scr-txt1 {
+    font-size: 24px;
+}
+
+.scr-txt2 {
+    font-size: 15px;
+}
+
+
+.sc-r-cards {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.sc-card {
+    width: 30%;
+    padding: 3px;
+    margin: 0;
+    border: 0px solid black;
+    font-size: 12px;
+
+    /* 陰影效果 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+
+    /* 多行文字處理 */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* 限制最多 2 行 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 5%;
+}
+
+
+.sc-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 20%;
+    object-fit: contain;
+}
+
+.sc-card {
+    display: inline-block;
+    /* 由圖片決定寬度 */
+    overflow-wrap: break-word;
+    /* 長字自動斷行 */
+    word-break: break-word;
+    /* 舊瀏覽器兼容 */
+    text-align: center;
+}
+
+
+.dot-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    /* 垂直置中 */
+    justify-content: center;
+    /* 水平置中 (如果需要) */
+    /* 父容器要有高度，才能看出垂直置中效果 */
+    color: gray;
+    font-size: 5px;
+    letter-spacing: 2px;
+}
+
+
+.scl-txt1,
+.scl-txt2,
+.scr-txt1,
+.scr-txt2 {
+    text-align: right;
+}
+
+.sc-btn {
+    display: inline-block;
+    padding: 10px 30px;
+    /* 高度 & 左右間距 */
+    background-color: gray;
+    /* 灰底 */
+    color: white;
+    /* 白字 */
+    font-size: 14px;
+    text-align: center;
+    border-radius: 9999px;
+    /* 兩邊半圓 (膠囊效果) */
+    cursor: default;
+    /* 滑鼠移過去不會變按鈕手型，可改 pointer */
+    user-select: none;
+    /* 禁止選取文字，可選擇加或不加 */
+}
+
+.sc-r-note {
+    padding: 10px 5px;
+    display: flex;
+    justify-content: end;
+}
+
+.sc-r-note-img {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: contain;
+    object-position: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}

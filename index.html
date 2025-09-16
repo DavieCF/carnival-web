@@ -11,6 +11,7 @@
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/section-c.css">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -224,325 +225,132 @@
             </div>
         </section>
 
-        <!--
-        <section class="default-section" style="height: 50vh; background-color:#07070744" id=" sec-c">
+
+        <section style="height: 60vh; background-color:#07070700" id="sec-c">
             <p class="sc-title">早鳥禮&抽獎活動&癌友獨享資源</p>
-            <div class="default-content">
+            <div class="sc-content">
                 <div class="sc-l">
-                    <p><span>簽到禮</span><span>為愛的人祈福</span></p>
-                    <img src="./img/祈福卡紙.png">
-                    <p>祈福卡紙</p>
+                    <div style="padding: 0;">
+                        <div class="arc-text" style="padding: 0;">
+                            <span>簽</span>
+                            <span>到</span>
+                            <span>禮</span>
+                            <span class="gap"></span>
+                            <span>為</span>
+                            <span>愛</span>
+                            <span>的</span>
+                            <span>人</span>
+                            <span>祈</span>
+                            <span>福</span>
+                        </div>
+
+                        <style>
+                            .arc-text {
+                                display: flex;
+                                justify-content: center;
+                                gap: 2px;
+                            }
+
+                            .arc-text span {
+                                padding: 6px;
+                            }
+
+                            .arc-text span {
+                                display: inline-block;
+                                font-size: 20px;
+                                font-weight: bold;
+                                color: teal;
+                                transform-origin: bottom center;
+                                /* 旋轉基準點 */
+                            }
+
+                            .arc-text span:nth-child(1) {
+                                transform: rotate(-38deg) translateY(60px);
+                                /* 上移 5px */
+                            }
+
+                            .arc-text span:nth-child(2) {
+                                transform: rotate(-35deg) translateY(40px);
+                            }
+
+                            .arc-text span:nth-child(3) {
+                                transform: rotate(-25deg)translateY(24px);
+                            }
+
+                            .arc-text span:nth-child(4) {
+                                width: 20px;
+                            }
+
+                            /* 空白間隔 */
+                            .arc-text span:nth-child(5) {
+                                transform: rotate(5deg) translateY(10px);
+                                color: pink;
+                            }
+
+                            .arc-text span:nth-child(6) {
+                                transform: rotate(10deg) translateY(8px);
+                                color: pink;
+                            }
+
+                            .arc-text span:nth-child(7) {
+                                transform: rotate(15deg) translateY(15px);
+                                color: pink;
+                            }
+
+                            .arc-text span:nth-child(8) {
+                                transform: rotate(20deg) translateY(25px);
+                                color: pink;
+                            }
+
+                            .arc-text span:nth-child(9) {
+                                transform: rotate(25deg) translateY(44px);
+                                color: pink;
+                            }
+
+                            .arc-text span:nth-child(10) {
+                                transform: rotate(33deg) translateY(69px);
+                                color: pink;
+                            }
+                        </style>
+
+                    </div>
+                    <!-- <p><span class="scl-txt1">簽到禮</span><span class="scl-txt2">為愛的人祈福</span></p> -->
+                    <img class="sc-circle-img" src="./cf-img/7729717.jpg">
+                    <p class="scl-txt3">祈福卡紙</p>
                 </div>
                 <div class="sc-r">
-                    <p>當日抽獎好禮超過10萬元</p>
-                    <p>只要完成報名現場報到後即可符合抽獎條件</p>
+                    <p class="scr-txt1">當日抽獎好禮超過10萬元</p>
+                    <p class="scr-txt2">只要完成報名現場報到後即可符合抽獎條件</p>
                     <div class="sc-r-cards">
                         <div class="sc-card">
                             <img src="./img/test-item.png">
-                            txtxtxtxtxtxxtx
+                            txtxtxtx<br>txtxxtx
                         </div>
-                        <div class="sc-card"></div>
-                        <div class="sc-card"></div>
+                        <div class="sc-card">
+                            <img src="./img/test-item.png">
+                            txtxtxtx<br>txtxxtx
+                        </div>
+                        <div class="sc-card">
+                            <img src="./img/test-item.png">
+                            txtxtxtxt<br>xtxxtx
+                        </div>
+                        <div class="dot-container">
+                            <div>●●●</div>
+                        </div>
                     </div>
                     <div class="sc-r-note">
                         <div class="sc-r-note-txt">
-                            <p>病友獨享資源</p>
-                            <p>抗癌手冊、關懷包等</p>
+                            <p class="scr-txt1">病友獨享資源</p>
+                            <p class="scr-txt2">抗癌手冊、關懷包等</p>
                         </div>
                         <img class="sc-r-note-img">
                     </div>
                 </div>
-                <div class="sc-btn">
-                    Coming soon
-                </div>
             </div>
-            <style>
-                .sc-title {
-                    text-align: center;
-                    font-size: 40px;
-                    font-weight: 700;
-                    color: var(--cf-green);
-                }
-
-                .sc-l {
-                    display: flex;
-                    justify-content: center;
-                }
-
-                .sc-l img {
-                    img-location: center center
-                }
-            </style>
-        </section>
-        -->
-
-        <section id="sec-c" class="sc-section">
-            <div class="sc-wrap">
-                <p class="sc-title">早鳥禮&抽獎活動&癌友獨享資源</p>
-
-                <div class="sc-content">
-                    <!-- 左側：簽到禮 -->
-                    <div class="sc-l">
-                        <p class="sc-l-tags">
-                            <span>簽到禮</span><span>為愛的人祈福</span>
-                        </p>
-
-                        <div class="sc-l-imgwrap">
-                            <img src="./img/祈福卡紙.png" alt="祈福卡紙">
-                        </div>
-
-                        <p class="sc-l-caption">祈福紙卡</p>
-                    </div>
-
-                    <!-- 右側：抽獎 + 病友資源 -->
-                    <div class="sc-r">
-                        <div class="sc-r-head">
-                            <p class="sc-r-title">當日抽獎好禮超過10萬元</p>
-                            <p class="sc-r-sub">只要完成報名並現場報到後，即可符合抽獎條件</p>
-                        </div>
-
-                        <div class="sc-r-cards">
-                            <div class="sc-card">
-                                <img src="./img/test-item.png" alt="贈品示意">
-                                <p class="sc-card-txt">禮券 NT$3,000</p>
-                            </div>
-                            <div class="sc-card">
-                                <img src="./img/test-item.png" alt="贈品示意">
-                                <p class="sc-card-txt">健康好禮組</p>
-                            </div>
-                            <div class="sc-card">
-                                <img src="./img/test-item.png" alt="贈品示意">
-                                <p class="sc-card-txt">限量神秘禮</p>
-                            </div>
-                        </div>
-
-                        <div class="sc-r-note">
-                            <div class="sc-r-note-txt">
-                                <p class="sc-note-title">病友獨享資源</p>
-                                <p class="sc-note-sub">抗癌手冊、關懷包等</p>
-                            </div>
-                            <img class="sc-r-note-img" src="./img/test-item.png" alt="資源示意">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="sc-btn" aria-disabled="true">Coming soon</div>
+            <div class="sc-btn">
+                Coming soon
             </div>
         </section>
-        <style>
-            /* SECTION 基本設定 */
-            .sc-section {
-                background-color: #07070744;
-            }
-
-            .sc-wrap {
-                max-width: 1440px;
-                margin: 0 auto;
-                padding: 48px 24px;
-                box-sizing: border-box;
-            }
-
-            /* 標題 */
-            .sc-title {
-                text-align: center;
-                font-size: clamp(28px, 3vw, 40px);
-                font-weight: 800;
-                color: var(--cf-green, #00a991);
-                letter-spacing: 1px;
-                margin: 0 0 28px;
-            }
-
-            /* 主容器：左右欄 */
-            .sc-content {
-                display: grid;
-                grid-template-columns: 1fr 1.35fr;
-                gap: clamp(20px, 3vw, 40px);
-                align-items: center;
-                justify-content: center;
-            }
-
-            /* 左側 */
-            .sc-l {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .sc-l-tags {
-                display: flex;
-                gap: 10px;
-                margin: 0 0 12px;
-            }
-
-            .sc-l-tags span {
-                font-size: 14px;
-                line-height: 1;
-                padding: 8px 12px;
-                border-radius: 999px;
-                background: #eaf7f5;
-                color: var(--cf-green, #00a991);
-                border: 1px solid #d5efea;
-                white-space: nowrap;
-            }
-
-            .sc-l-imgwrap {
-                width: clamp(220px, 28vw, 320px);
-                aspect-ratio: 1/1;
-                border-radius: 999px;
-                overflow: hidden;
-                box-shadow: 0 6px 24px rgba(0, 0, 0, .15);
-                background: #fff;
-                display: grid;
-                place-items: center;
-            }
-
-            .sc-l-imgwrap img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-
-            .sc-l-caption {
-                margin: 12px 0 0;
-                font-size: 14px;
-                color: #555;
-            }
-
-            /* 右側 */
-            .sc-r {
-                display: flex;
-                flex-direction: column;
-                gap: 16px;
-            }
-
-            .sc-r-head {
-                text-align: left;
-            }
-
-            .sc-r-title {
-                margin: 0 0 4px;
-                font-size: clamp(20px, 2vw, 24px);
-                font-weight: 700;
-                color: #222;
-            }
-
-            .sc-r-sub {
-                margin: 0;
-                font-size: 15px;
-                color: #666;
-            }
-
-            /* 抽獎卡片 */
-            .sc-r-cards {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: clamp(12px, 1.8vw, 18px);
-            }
-
-            .sc-card {
-                background: #fff;
-                border: 1px solid #eee;
-                border-radius: 16px;
-                padding: 14px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 10px;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, .06);
-            }
-
-            .sc-card img {
-                width: 100%;
-                aspect-ratio: 4/5;
-                object-fit: cover;
-                border-radius: 10px;
-            }
-
-            .sc-card-txt {
-                margin: 0;
-                font-size: 14px;
-                color: #333;
-            }
-
-            /* 病友資源 note */
-            .sc-r-note {
-                margin-top: 4px;
-                padding: 14px 16px;
-                border-radius: 14px;
-                background: #f7fbfa;
-                border: 1px solid #e6f3f0;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 14px;
-            }
-
-            .sc-r-note-txt {
-                display: flex;
-                flex-direction: column;
-                gap: 2px;
-            }
-
-            .sc-note-title {
-                margin: 0;
-                font-weight: 700;
-                font-size: 16px;
-                color: #1f4946;
-            }
-
-            .sc-note-sub {
-                margin: 0;
-                font-size: 14px;
-                color: #4a6b69;
-            }
-
-            .sc-r-note-img {
-                width: clamp(84px, 10vw, 120px);
-                height: clamp(84px, 10vw, 120px);
-                object-fit: cover;
-                border-radius: 12px;
-                border: 1px solid #e6f3f0;
-                background: #fff;
-            }
-
-            /* CTA 按鈕 */
-            .sc-btn {
-                margin: 28px auto 0;
-                width: fit-content;
-                padding: 10px 20px;
-                border-radius: 999px;
-                background: #e9ecef;
-                color: #637079;
-                font-weight: 600;
-                font-size: 14px;
-                line-height: 1;
-                box-shadow: 0 2px 6px rgba(0, 0, 0, .08) inset;
-            }
-
-            /* RWD */
-            @media (max-width: 1024px) {
-                .sc-content {
-                    grid-template-columns: 1fr;
-                }
-
-                .sc-r {
-                    order: 2;
-                }
-
-                .sc-l {
-                    order: 1;
-                }
-            }
-
-            @media (max-width: 600px) {
-                .sc-r-cards {
-                    grid-template-columns: 1fr 1fr;
-                }
-            }
-        </style>
-
         <section class="default-section" style="height: 90vh;">
             <div class="default-content">
             </div>
