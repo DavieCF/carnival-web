@@ -1,0 +1,47 @@
+<section class="bg-section">
+    <img src="./MKT-CF-抗癌嘉年華活動頁面_捧愛心的人-250910-3-010-03-03.png" alt="Center Image" class="center-img">
+</section>
+<style>
+    .bg-section {
+        height: 100vh;
+        /* 假設滿版，可以依需求調整 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* 背景: 上白30%，中黑40%，下白30% */
+        background: linear-gradient(to bottom,
+                white 0%,
+                white 30%,
+                black 30%,
+                black 70%,
+                white 70%,
+                white 100%);
+    }
+
+    .center-img {
+        height: 60%;
+        /* 高度佔 section 的 60% */
+        object-fit: contain;
+        /* 保持比例，依需求可改 */
+    }
+</style>
+
+
+<section class="hero">
+    <h1>橫跨上下區域的標題</h1>
+</section>
+
+<style>
+    .hero {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        background:
+            linear-gradient(to bottom, transparent 80%, #f2f2f2 80%),
+            url('./img/MKT-CF-抗癌嘉年華活動頁面_背景-250910-3-010-03.png') no-repeat center/cover;
+    }
+</style>

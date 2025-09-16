@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Anti-Cancer Event</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@200..900&family=Noto+Sans+TC:wght@100..900&display=swap"
+        rel="stylesheet">
+
+
+    <style type="text/tailwindcss">
+        :root {
+    --primary-color: #53d22d;
+    --cf-green: #04b5a1;
+    --cf-black: #7a7a7a;
+    }
+    body {
+      font-family: 'Manrope', sans-serif;
+    }
+    .menu {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    .menu.open {
+      transform: translateX(0);
+    }
+    @media (min-width: 768px) {
+      .md\:flex {
+        display: flex;
+      }
+      .md\:hidden {
+        display: none;
+      }
+    }
+    @media (max-width: 767px) {
+        .md\:flex {
+            display: none;
+        }
+    }
+    .header-logo{
+        max-width:120px ;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-gray-800">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="md:hidden">
+                    <button class="text-gray-800" id="menu-toggle">
+                        <span class="material-symbols-outlined">
+                            menu
+                        </span>
+                    </button>
+                </div>
+                <nav class="hidden md:flex flex-1 items-center md:justify-start lg:justify-center gap-8">
+                    <a class="text-sm font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
+                        href="#">Anti-cancer Ambassadors</a>
+                    <a class="text-sm font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
+                        href="#">Carnival Content</a>
+                    <a class="text-sm font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
+                        href="#">Health Market</a>
+                    <a class="text-sm font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
+                        href="#">Special Lectures</a>
+                    <a class="text-sm font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
+                        href="#">Daily Schedule</a>
+                </nav>
+                <div class="flex items-center gap-2">
+                    <img src="./cf-img/logo-v3.0-TC.png" class="header-logo">
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="menu fixed top-0 left-0 h-full w-[30%] bg-white p-6 md:hidden shadow-lg" id="mobile-menu">
+        <nav class="flex flex-col gap-6 pt-16">
+            <a class="text-base font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
+                href="#">Anti-cancer Ambassadors</a>
+            <a class="text-base font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
+                href="#">Carnival Content</a>
+            <a class="text-base font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
+                href="#">Health Market</a>
+            <a class="text-base font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
+                href="#">Special Lectures</a>
+            <a class="text-base font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
+                href="#">Daily Schedule</a>
+        </nav>
+    </div>
+    <!-- <main class="pt-20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-20 min-h-screen">
+            <h1 class="text-4xl font-bold text-center text-gray-900">Anti-Cancer Event</h1>
+            <p class="text-center text-gray-600 mt-4">Welcome to our event. Explore the sections above.</p>
+        </div>
+    </main> -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+        // Close menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!mobileMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+                mobileMenu.classList.remove('open');
+            }
+        });
+    </script>
+
+    <main>
+        <section class="default-section top-banner">
+            <div class="default-content tb-c">
+                <div class="tb-l">
+                    <p class="color-cf-green">擁抱自己，邊緣不邊緣</p>
+                    <img src="./cf-img/banner-logo.png" width="100%">
+                    <p class="color-cf-black"><span style="font-size: 36px;">2025.11.30</span><span
+                            style="font-size: 20px;">(日)</span></p>
+                    <p class="color-cf-black" style="font-size: 36px;">松菸文創園區<br>(四號倉庫)</p>
+                </div>
+                <div class="tb-r" id="tbR">
+                    <button class="round-btn floating-btn">
+                        <img src="./cf-img/LOGO-25526-3-010.png" alt="logo">
+                        <span>點我報名</span>
+                    </button>
+                </div>
+
+                <!-- 浮動按鈕（預設隱藏，滾動時顯示） -->
+                <button class="round-btn fixed-btn" id="fixedBtn">
+                    <img src="./cf-img/LOGO-25526-3-010.png" alt="logo">
+                    <span>點我報名</span>
+                </button>
+                <script src="./js/banner.js"></script>
+            </div>
+        </section>
+
+        <section class="default-section" style="height: 110vh; background-color:#07070700" id="sec-b">
+            <div class="default-content" style="flex-direction: column;">
+                <div class="sb-1">
+                    <div class="sb-1-l">
+                        <p>抗癌大使 林茉晶</p>
+                    </div>
+                    <div class="sb-1-r">
+                        <p class="sb1r-1">
+                            全台最大的抗癌派對
+                        </p>
+                        <p class="sb1r-2">
+                            替身醫療論壇 5周年 重磅升級<br>
+                            市集 x 醫師講座 x 名人分享 x 手作體驗
+                        </p>
+                        <p class="sb1r-3">
+                            過去多年，我們不停以行動關注健康議題，<br>
+                            藉由舉辦各式講座、市集與公益活動，<br>
+                            陪伴癌症病友與家屬走過挑戰。​<br>
+                            我們希望透過這些活動，與癌友社群建立深厚的連結，<br>
+                            成為彼此分享、理解與支持的重要平台。<br>
+                            大家可以自由逛市集、聽講座、獲取營養資訊，<br>
+                            在輕鬆地氛圍中一次滿足健康需求。​<br>
+                        </p>
+                    </div>
+                </div>
+                <div class="sb-2">
+                    <div class="sb2-card-contenter">
+                        <p class="sb2-title">4大精彩環節 不容錯過</p>
+
+                        <div class="sb2-grid">
+                            <div class="sb2-card">
+                                <div class="sb2-card-imgwrap">
+                                    <img class="sb2-card-img" alt="">
+                                </div>
+                                <div class="sb2-card-text">
+                                    <p class="sb2-card-title">健康市集</p>
+                                    <p class="sb2-card-desc">匯集健康品牌、醫療機構及癌症關懷資源，提供多元體驗。</p>
+                                </div>
+                            </div>
+
+                            <div class="sb2-card">
+                                <div class="sb2-card-imgwrap">
+                                    <img class="sb2-card-img" alt="">
+                                </div>
+                                <div class="sb2-card-text">
+                                    <p class="sb2-card-title">專題講座</p>
+                                    <p class="sb2-card-desc">邀請權威專家與產業 KOL 分享身心靈健康技巧。</p>
+                                </div>
+                            </div>
+
+                            <div class="sb2-card">
+                                <div class="sb2-card-imgwrap">
+                                    <img class="sb2-card-img" alt="">
+                                </div>
+                                <div class="sb2-card-text">
+                                    <p class="sb2-card-title">名人分享</p>
+                                    <p class="sb2-card-desc">由抗癌名人現身分享生命故事，帶來希望與啟發。</p>
+                                </div>
+                            </div>
+
+                            <!-- 最後一張卡片 -->
+                            <div class="sb2-card sb2-card-last">
+                                <div class="sb2-card-imgwrap">
+                                    <img class="sb2-card-img" alt="">
+                                </div>
+                                <div class="sb2-card-text">
+                                    <p class="sb2-card-title">手作體驗</p>
+                                    <p class="sb2-card-desc">透過療癒系手作活動提升健康意識。</p>
+                                </div>
+
+                                <!-- 報名工作坊圓形按鈕 -->
+                                <a href="#" class="sb2-btn">
+                                    <span>報名工作坊 >></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--
+        <section class="default-section" style="height: 50vh; background-color:#07070744" id=" sec-c">
+            <p class="sc-title">早鳥禮&抽獎活動&癌友獨享資源</p>
+            <div class="default-content">
+                <div class="sc-l">
+                    <p><span>簽到禮</span><span>為愛的人祈福</span></p>
+                    <img src="./img/祈福卡紙.png">
+                    <p>祈福卡紙</p>
+                </div>
+                <div class="sc-r">
+                    <p>當日抽獎好禮超過10萬元</p>
+                    <p>只要完成報名現場報到後即可符合抽獎條件</p>
+                    <div class="sc-r-cards">
+                        <div class="sc-card">
+                            <img src="./img/test-item.png">
+                            txtxtxtxtxtxxtx
+                        </div>
+                        <div class="sc-card"></div>
+                        <div class="sc-card"></div>
+                    </div>
+                    <div class="sc-r-note">
+                        <div class="sc-r-note-txt">
+                            <p>病友獨享資源</p>
+                            <p>抗癌手冊、關懷包等</p>
+                        </div>
+                        <img class="sc-r-note-img">
+                    </div>
+                </div>
+                <div class="sc-btn">
+                    Coming soon
+                </div>
+            </div>
+            <style>
+                .sc-title {
+                    text-align: center;
+                    font-size: 40px;
+                    font-weight: 700;
+                    color: var(--cf-green);
+                }
+
+                .sc-l {
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .sc-l img {
+                    img-location: center center
+                }
+            </style>
+        </section>
+        -->
+
+        <section id="sec-c" class="sc-section">
+            <div class="sc-wrap">
+                <p class="sc-title">早鳥禮&抽獎活動&癌友獨享資源</p>
+
+                <div class="sc-content">
+                    <!-- 左側：簽到禮 -->
+                    <div class="sc-l">
+                        <p class="sc-l-tags">
+                            <span>簽到禮</span><span>為愛的人祈福</span>
+                        </p>
+
+                        <div class="sc-l-imgwrap">
+                            <img src="./img/祈福卡紙.png" alt="祈福卡紙">
+                        </div>
+
+                        <p class="sc-l-caption">祈福紙卡</p>
+                    </div>
+
+                    <!-- 右側：抽獎 + 病友資源 -->
+                    <div class="sc-r">
+                        <div class="sc-r-head">
+                            <p class="sc-r-title">當日抽獎好禮超過10萬元</p>
+                            <p class="sc-r-sub">只要完成報名並現場報到後，即可符合抽獎條件</p>
+                        </div>
+
+                        <div class="sc-r-cards">
+                            <div class="sc-card">
+                                <img src="./img/test-item.png" alt="贈品示意">
+                                <p class="sc-card-txt">禮券 NT$3,000</p>
+                            </div>
+                            <div class="sc-card">
+                                <img src="./img/test-item.png" alt="贈品示意">
+                                <p class="sc-card-txt">健康好禮組</p>
+                            </div>
+                            <div class="sc-card">
+                                <img src="./img/test-item.png" alt="贈品示意">
+                                <p class="sc-card-txt">限量神秘禮</p>
+                            </div>
+                        </div>
+
+                        <div class="sc-r-note">
+                            <div class="sc-r-note-txt">
+                                <p class="sc-note-title">病友獨享資源</p>
+                                <p class="sc-note-sub">抗癌手冊、關懷包等</p>
+                            </div>
+                            <img class="sc-r-note-img" src="./img/test-item.png" alt="資源示意">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sc-btn" aria-disabled="true">Coming soon</div>
+            </div>
+        </section>
+        <style>
+            /* SECTION 基本設定 */
+            .sc-section {
+                background-color: #07070744;
+            }
+
+            .sc-wrap {
+                max-width: 1440px;
+                margin: 0 auto;
+                padding: 48px 24px;
+                box-sizing: border-box;
+            }
+
+            /* 標題 */
+            .sc-title {
+                text-align: center;
+                font-size: clamp(28px, 3vw, 40px);
+                font-weight: 800;
+                color: var(--cf-green, #00a991);
+                letter-spacing: 1px;
+                margin: 0 0 28px;
+            }
+
+            /* 主容器：左右欄 */
+            .sc-content {
+                display: grid;
+                grid-template-columns: 1fr 1.35fr;
+                gap: clamp(20px, 3vw, 40px);
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* 左側 */
+            .sc-l {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .sc-l-tags {
+                display: flex;
+                gap: 10px;
+                margin: 0 0 12px;
+            }
+
+            .sc-l-tags span {
+                font-size: 14px;
+                line-height: 1;
+                padding: 8px 12px;
+                border-radius: 999px;
+                background: #eaf7f5;
+                color: var(--cf-green, #00a991);
+                border: 1px solid #d5efea;
+                white-space: nowrap;
+            }
+
+            .sc-l-imgwrap {
+                width: clamp(220px, 28vw, 320px);
+                aspect-ratio: 1/1;
+                border-radius: 999px;
+                overflow: hidden;
+                box-shadow: 0 6px 24px rgba(0, 0, 0, .15);
+                background: #fff;
+                display: grid;
+                place-items: center;
+            }
+
+            .sc-l-imgwrap img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .sc-l-caption {
+                margin: 12px 0 0;
+                font-size: 14px;
+                color: #555;
+            }
+
+            /* 右側 */
+            .sc-r {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .sc-r-head {
+                text-align: left;
+            }
+
+            .sc-r-title {
+                margin: 0 0 4px;
+                font-size: clamp(20px, 2vw, 24px);
+                font-weight: 700;
+                color: #222;
+            }
+
+            .sc-r-sub {
+                margin: 0;
+                font-size: 15px;
+                color: #666;
+            }
+
+            /* 抽獎卡片 */
+            .sc-r-cards {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: clamp(12px, 1.8vw, 18px);
+            }
+
+            .sc-card {
+                background: #fff;
+                border: 1px solid #eee;
+                border-radius: 16px;
+                padding: 14px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 10px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, .06);
+            }
+
+            .sc-card img {
+                width: 100%;
+                aspect-ratio: 4/5;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+
+            .sc-card-txt {
+                margin: 0;
+                font-size: 14px;
+                color: #333;
+            }
+
+            /* 病友資源 note */
+            .sc-r-note {
+                margin-top: 4px;
+                padding: 14px 16px;
+                border-radius: 14px;
+                background: #f7fbfa;
+                border: 1px solid #e6f3f0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 14px;
+            }
+
+            .sc-r-note-txt {
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+            }
+
+            .sc-note-title {
+                margin: 0;
+                font-weight: 700;
+                font-size: 16px;
+                color: #1f4946;
+            }
+
+            .sc-note-sub {
+                margin: 0;
+                font-size: 14px;
+                color: #4a6b69;
+            }
+
+            .sc-r-note-img {
+                width: clamp(84px, 10vw, 120px);
+                height: clamp(84px, 10vw, 120px);
+                object-fit: cover;
+                border-radius: 12px;
+                border: 1px solid #e6f3f0;
+                background: #fff;
+            }
+
+            /* CTA 按鈕 */
+            .sc-btn {
+                margin: 28px auto 0;
+                width: fit-content;
+                padding: 10px 20px;
+                border-radius: 999px;
+                background: #e9ecef;
+                color: #637079;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 1;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, .08) inset;
+            }
+
+            /* RWD */
+            @media (max-width: 1024px) {
+                .sc-content {
+                    grid-template-columns: 1fr;
+                }
+
+                .sc-r {
+                    order: 2;
+                }
+
+                .sc-l {
+                    order: 1;
+                }
+            }
+
+            @media (max-width: 600px) {
+                .sc-r-cards {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+        </style>
+
+        <section class="default-section" style="height: 90vh;">
+            <div class="default-content">
+            </div>
+        </section>
+
+        <section class="default-section" style="height: 90vh;">
+            <div class="default-content">
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

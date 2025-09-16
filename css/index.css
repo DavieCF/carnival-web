@@ -1,0 +1,355 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Chiron GoRound TC", sans-serif;
+}
+
+main {
+    font-size: 30px;
+}
+
+:root {
+    --primary-color: #53d22d;
+    --cf-green: #04B5A2;
+    --cf-black: #7a7a7a;
+    --green-light: #72C1BA;
+}
+
+.color-cf-green {
+    color: var(--cf-green);
+}
+
+.color-cf-black {
+    color: var(--cf-black);
+}
+
+.default-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.default-content {
+    display: flex;
+    justify-content: center;
+    width: 1440px;
+    height: 100%;
+}
+
+.top-banner {
+    background:
+        /* url('../mk-img/MKT-CF-抗癌嘉年華主視覺配圖_右邊攤位-250526-3-010.png') no-repeat right bottom/30% auto, */
+        linear-gradient(to bottom, transparent 95%, white 5%),
+        url('../img/DD-banner.png') no-repeat center/cover;
+}
+
+.tb-l {
+    text-align: center;
+    padding-left: 10%;
+    width: 50%;
+    font-weight: 600;
+}
+
+.tb-r {
+    flex: 1;
+}
+
+.tb-l,
+.tb-r {
+    height: 75%;
+}
+
+.tb-c {
+    background: url('../cf-img/右邊攤位-250526-3-010.png') no-repeat right bottom/60% auto;
+}
+
+
+/* 共用按鈕樣式 */
+.round-btn {
+    width: 100px;
+    /* 按鈕大小，可調 */
+    height: 100px;
+    border-radius: 50%;
+    /* 正圓 */
+    background-color: #D7FFF1;
+    /* 淺綠色 */
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    /* 圖片在上，文字在下 */
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: box-shadow 0.3s, opacity 0.3s;
+}
+
+.round-btn:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* 按鈕內圖片保持比例 */
+.round-btn img {
+    max-width: 40%;
+    /* 控制在圓形內大小 */
+    height: auto;
+    /* 保持比例 */
+    margin-bottom: 5px;
+}
+
+/* 文字 */
+.round-btn span {
+    font-size: 14px;
+    color: #00695c;
+    /* 深綠字體 */
+    text-align: center;
+}
+
+/* 在 .tb-r 內的按鈕 → 固定右上角 */
+.tb-r {
+    position: relative;
+}
+
+.tb-r .floating-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* 右下角浮動按鈕（初始隱藏） */
+.fixed-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s;
+    z-index: 1000;
+}
+
+.fixed-btn.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+/* section-b */
+
+.sb-1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.sb-2 {
+    width: 100%;
+}
+
+.sb-1 {
+    padding-right: 10%;
+}
+
+.sb-1-l,
+.sb-1-r {
+    height: 100%;
+}
+
+.sb-1-l {
+    flex: 1;
+    background: url('../cf-img/茉晶替代.png') no-repeat right bottom/contain;
+    ;
+}
+
+.sb-1-r {
+    width: 60%;
+}
+
+.sb-1-l p {
+    padding: 30px;
+}
+
+.sb-1-r {
+    padding: 10px 5px;
+    text-align: right;
+}
+
+.sb-1-r p {
+    padding: 10px 0px;
+}
+
+.sb1r-1 {
+    color: var(--cf-green);
+    font-weight: 700;
+    font-size: 48px
+}
+
+.sb1r-2 {
+    color: #1A1A1A;
+    font-weight: 600;
+    font-size: 36px;
+}
+
+.sb1r-3 {
+    color: #000000;
+    font-weight: 500;
+    font-size: 18px
+}
+
+#sec-b {
+    background: url("../img/MKT-CF-抗癌嘉年華活動頁面_攤車插圖-250910-3-010-03.png") no-repeat right 50%/25% auto;
+}
+
+
+
+/* === 外框區 === */
+.sb-2 {
+    background: url("../cf-img/左邊攤位(無鯨魚)-250602-3-010.png") no-repeat left center / auto 100%;
+    width: 100%;
+}
+
+.sb2-card-contenter {
+    padding: 5% 5% 5% 20%;
+}
+
+.sb-2,
+.sb-2 * {
+    box-sizing: border-box;
+}
+
+/* === 標題 === */
+.sb2-title {
+    margin: 0 0 16px 0;
+    font-size: clamp(20px, 2.4vw, 30px);
+    font-weight: 700;
+    color: var(--green-light);
+}
+
+/* === 卡片排版 === */
+.sb2-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    max-width: 1200px;
+}
+
+.sb2-card {
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    gap: 12px;
+    background: #fff;
+    border-radius: 4px;
+    padding: 12px;
+    border: 2px solid var(--green-light);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    position: relative;
+    transition: box-shadow .2s ease;
+}
+
+.sb2-card:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
+}
+
+/* === 卡片內圖片 === */
+.sb2-card-imgwrap {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #f2f5f7;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sb2-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* === 卡片文字 === */
+.sb2-card-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.sb2-card-title {
+    margin: 4px 0 6px 0;
+    font-size: clamp(16px, 1.6vw, 20px);
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.sb2-card-title {
+    text-decoration: underline;
+    text-decoration-color: var(--green-light);
+    /* 下劃線顏色 */
+    text-decoration-thickness: 2px;
+    /* 線條粗細 */
+    text-underline-offset: 4px;
+    /* 與文字距離 */
+}
+
+
+.sb2-card-desc {
+    margin: 0;
+    font-size: clamp(14px, 1.3vw, 16px);
+    line-height: 1.6;
+    color: #444;
+}
+
+/* === 圓形按鈕 === */
+.sb2-btn {
+    position: absolute;
+    right: 30px;
+    bottom: -15px;
+    border-radius: 1%;
+    background: #7ed7b5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    transition: all .2s ease;
+    overflow: hidden;
+    text-align: center;
+    padding: 10px;
+}
+
+.sb2-btn img {
+    width: 40%;
+    height: auto;
+    margin-bottom: 4px;
+    object-fit: contain;
+    /* 保持比例 */
+}
+
+.sb2-btn:hover {
+    background: #5ec99d;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* === RWD === */
+@media (max-width: 992px) {
+    .sb2-card-contenter {
+        padding-left: 18%;
+    }
+
+    .sb2-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .sb2-card {
+        grid-template-columns: 42% 1fr;
+    }
+}
