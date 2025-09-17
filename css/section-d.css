@@ -1,0 +1,101 @@
+#sec-d {
+    background:
+        url(../cf-img/temp-mark.jpg) no-repeat 80% 20% / 150px auto,
+        url(../cf-img/temp-market.jpg) no-repeat 70% 25% / 200px auto,
+        linear-gradient(to bottom,
+            white 0%,
+            /* 上 0~10% 白色 */
+            white 10%,
+            #F9D5E5 10%,
+            /* 10%~80% 粉紅色 */
+            #F9D5E5 90%,
+            white 90%,
+            /* 80%~100% 白色 */
+            white 100%);
+}
+
+.sd-content {
+    width: 1440px;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pd-50 {
+    padding: 50px;
+}
+
+.sd-txt {
+    padding-top: 100px;
+    width: 720px;
+}
+
+.sd-txt p {
+    padding: 0 10px 10px 0;
+
+}
+
+.fs-large {
+    font-size: 36px;
+}
+
+.fs-light {
+    font-size: 16px;
+}
+
+.sd-cards {
+    width: 70%;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.sd-card {
+    padding: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 5%;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.sd-card img {
+    width: 80px;
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.sd-cards button {
+    background-color: var(--cf-green);
+    color: white;
+    border-radius: 50%;
+    font-size: 24px;
+    padding: 5px;
+
+    /* 顏色可自行調整 */
+    --bg: #27C2B3;
+    /* 按鈕底色 */
+    --fg: #fff;
+    /* 文字/圖示顏色 */
+
+    display: inline-flex;
+    align-items: center;
+    gap: .6em;
+    height: 44px;
+    /* 固定高度（可改） */
+    padding: 0 16px 0 18px;
+    /* 內距 */
+    background: var(--bg);
+    color: var(--fg);
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 9999px;
+    /* 關鍵：兩端半圓 */
+    box-shadow: 0 6px 14px rgba(0, 0, 0, .12);
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.sd-cards-title {
+    padding: 0 0 20px 5px;
+}

@@ -14,11 +14,11 @@
 }
 
 .sc-content {
-    max-width: 1440px;
+    width: 960px;
     display: flex;
     justify-content: space-between;
-    background: url("../img/MKT-CF-抗癌嘉年華活動頁面_捧愛心的人-250910-3-010-03-03.png") no-repeat 40% center/auto 80%;
-    padding: 20px 40px;
+    background: url("../img/MKT-CF-抗癌嘉年華活動頁面_捧愛心的人-250910-3-010-03-03.png") no-repeat 37% center/auto 70%;
+    padding: 20px 0;
 }
 
 .sc-content * {
@@ -28,9 +28,9 @@
 
 
 .sc-circle-img {
-    width: 300px;
+    width: 270px;
     /* 調整大小 */
-    height: 300px;
+    height: 270px;
     /* 寬高一樣才能變成完美圓形 */
     border-radius: 50%;
     /* 圓形 */
@@ -49,19 +49,19 @@
 
 .sc-l {
     text-align: center;
-    padding-right: 250px;
-    padding-top: 50px;
+    width: 40%;
 }
 
 .sc-r {
     letter-spacing: 4px;
 }
 
-.scl-txt3,
+
 .scr-txt1 {
     font-size: 24px;
 }
 
+.scl-txt3,
 .scr-txt2 {
     font-size: 15px;
 }
@@ -141,7 +141,7 @@
     /* 灰底 */
     color: white;
     /* 白字 */
-    font-size: 14px;
+    font-size: 24px;
     text-align: center;
     border-radius: 9999px;
     /* 兩邊半圓 (膠囊效果) */
