@@ -14,7 +14,8 @@
 }
 
 .sc-content {
-    width: 960px;
+    max-width: 1080px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     background: url("../img/MKT-CF-抗癌嘉年華活動頁面_捧愛心的人-250910-3-010-03-03.png") no-repeat 37% center/auto 70%;
