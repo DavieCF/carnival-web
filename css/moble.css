@@ -1,0 +1,295 @@
+/* section {
+    background: linear-gradient(to bottom,
+            #f8f8f8 0%,
+            #e0e0e0 20%,
+            #f8f8f8 40%,
+            #e0e0e0 60%,
+            #f8f8f8 80%,
+            #e0e0e0 100%);
+} */
+.fs-h1 {
+    font-size: clamp(24px, 6vw, 32px);
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.fs-h2 {
+    font-size: clamp(20px, 5vw, 24px);
+    line-height: 1.35;
+    font-weight: 500;
+}
+
+.fs-h3 {
+    font-size: clamp(16px, 4.5vw, 18px);
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+.fs-h4 {
+    font-size: clamp(14px, 4vw, 16px);
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+
+
+:root {
+    --primary-color: #53d22d;
+    --cf-green: #04B5A2;
+    --cf-black: #7a7a7a;
+    --green-light: #72C1BA;
+}
+
+.menu {
+    z-index: 999;
+}
+
+.mo-top-banner {
+    background:
+        url('../mk-img/MKT-CF-抗癌嘉年華主視覺配圖_全圖-250526-3-010.png')no-repeat center bottom/contain,
+        linear-gradient(to bottom, transparent 95%, white 5%),
+        url('../img/DD-banner.png') no-repeat center/cover;
+    ;
+
+    height: min(850px, 75vh);
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.mo-tb-c {
+    text-align: center;
+
+    padding: 150px 40px max(230px, 28vh);
+    transform: translateX(-40px);
+
+}
+
+.mo-tb-l img {
+    display: block;
+    /* 讓 img 變成區塊 */
+    margin: 0 auto;
+    /* 左右自動推開，置中 */
+    width: max(60%, 60vw);
+}
+
+
+#mo-tbR {
+    position: fixed;
+    top: 40vh;
+    right: 5px;
+    z-index: 1000;
+    transition: top 0.2s ease-out;
+}
+
+
+#mo-tbR .round-btn:hover {
+    transform: scale(1.05);
+}
+
+.mo-sb-1-r p {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.mo-color-cf-green {
+    color: var(--cf-green);
+    font-weight: 700;
+}
+
+.mo-sb-1 {
+    padding-top: 40px;
+}
+
+.mo-sb1r-1 {
+    color: var(--cf-green);
+}
+
+
+.mo-sb-1-l {
+    position: relative;
+    height: 50vh;
+    background:
+        url(../cf-img/茉晶替代.png) no-repeat center right/50% auto,
+        url(../img/MKT-CF-抗癌嘉年華活動頁面_攤車插圖-250910-3-010-03.png) no-repeat left bottom / 25% auto;
+}
+
+
+.mosb1l-img {
+    width: 100%;
+    position: absolute;
+    top: 10%;
+    /* 從 10% 開始 */
+    height: 80%;
+    /* 到 90% 結束 */
+    background:
+        url(../cf-img/temp-market.jpg) no-repeat center/cover;
+    z-index: -1;
+}
+
+.mosb1l-img {
+    color: aliceblue;
+}
+
+.mosb1l-img p {
+    font-size: 32px;
+    font-weight: 500;
+    padding: 10vh 0 0 40px;
+}
+
+.mo-sb2-title {
+    padding: 20px 0;
+    font-size: 36px;
+    color: var(--green-light);
+    text-align: center;
+}
+
+.mo-sb2-grid {
+    background:
+        url('../mk-img/MKT-CF-抗癌嘉年華主視覺配圖_右邊攤位(無鯨魚)-250609-3-010.png') no-repeat right 25%/ 20% auto,
+        url('../mk-img/MKT-CF-抗癌嘉年華主視覺配圖_左邊攤位\(無鯨魚\)-250602-3-010.png') no-repeat left 80% / 50% auto;
+}
+
+.mo-sb2-grid {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.mo-sb2-card {
+    margin-top: 15px;
+    padding: 10px 15px;
+    width: min(500px, 90vw);
+    height: min(200px, 16vh);
+    border: 2px solid var(--green-light);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mo-sb2-card-img {
+    max-width: none;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.mo-sb2-card-text {
+    padding: 0 15px;
+}
+
+.mo-sb2-card-title {
+    text-decoration: underline;
+    text-decoration-color: var(--green-light);
+    /* 下劃線顏色 */
+    text-decoration-thickness: 2px;
+    /* 線條粗細 */
+    text-underline-offset: 4px;
+    /* 與文字距離 */
+    padding-bottom: 5px;
+}
+
+/* section-c */
+
+.mo-sc-title {
+    color: var(--cf-green);
+    text-align: center;
+}
+
+#mo-sec-c {
+    padding: 30px 10px;
+}
+
+
+
+.mo-sc-circle-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.mo-sc-l {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 40vw 150px 0;
+    background: url(../img/MKT-CF-抗癌嘉年華活動頁面_捧愛心的人-250910-3-010-03-03.png) no-repeat 80% center/50% auto;
+}
+
+
+/*section-c suck txt*/
+.mo-arc-text {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+}
+
+.mo-arc-text span {
+    padding: 3px;
+}
+
+.mo-arc-text span {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    color: teal;
+    transform-origin: bottom center;
+    /* 旋轉基準點 */
+}
+
+.mo-arc-text span:nth-child(1) {
+    transform: rotate(-38deg) translateY(60px);
+    /* 上移 5px */
+}
+
+.mo-arc-text span:nth-child(2) {
+    transform: rotate(-35deg) translateY(40px);
+}
+
+.mo-arc-text span:nth-child(3) {
+    transform: rotate(-25deg)translateY(24px);
+}
+
+.mo-arc-text span:nth-child(4) {
+    width: 20px;
+}
+
+/* 空白間隔 */
+.mo-arc-text span:nth-child(5) {
+    transform: rotate(5deg) translateY(10px);
+    color: pink;
+}
+
+.mo-arc-text span:nth-child(6) {
+    transform: rotate(10deg) translateY(8px);
+    color: pink;
+}
+
+.mo-arc-text span:nth-child(7) {
+    transform: rotate(15deg) translateY(15px);
+    color: pink;
+}
+
+.mo-arc-text span:nth-child(8) {
+    transform: rotate(20deg) translateY(25px);
+    color: pink;
+}
+
+.mo-arc-text span:nth-child(9) {
+    transform: rotate(25deg) translateY(44px);
+    color: pink;
+}
+
+.mo-arc-text span:nth-child(10) {
+    transform: rotate(33deg) translateY(69px);
+    color: pink;
+}
+
+/*section-c suck txt*/

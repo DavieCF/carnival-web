@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./css/section-c.css">
     <link rel="stylesheet" href="./css/section-d.css">
     <link rel="stylesheet" href="./css/section-e.css">
+    <link rel="stylesheet" href="./css/moble.css">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,6 +60,24 @@
     .ff-pacifico {
         font-family: "Pacifico";
     }
+
+    @media (max-width: 958px) {
+        .pc-main{
+            display: none;
+        }
+        .round-btn{
+            width: 80px;
+            height: 80px;
+        }
+        .round-btn span {
+            font-size: 12px;
+        }
+    }
+    @media (min-width: 959px) {
+        .mo-main{
+            display: none;
+        }
+    }
   </style>
 </head>
 
@@ -94,7 +113,7 @@
     <div class="menu fixed top-0 left-0 h-full w-[30%] bg-white p-6 md:hidden shadow-lg" id="mobile-menu">
         <nav class="flex flex-col gap-6 pt-16">
             <a class="text-base font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
-                href="#">Anti-cancer Ambassadors</a>
+                href="#">Anti-cancer Ambassador</a>
             <a class="text-base font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
                 href="#">Carnival Content</a>
             <a class="text-base font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
@@ -125,7 +144,7 @@
         });
     </script>
 
-    <main>
+    <main class="pc-main">
         <section class="default-section top-banner">
             <div class="default-content tb-c">
                 <div class="tb-l">
@@ -479,6 +498,267 @@
             </div>
         </footer>
     </main>
+
+    <main class="mo-main">
+        <section class="mo-top-banner">
+            <div class="mo-tb-c">
+                <div class="mo-tb-l">
+                    <p class="mo-color-cf-green">擁抱自己，邊緣不邊緣</p>
+                    <img src="./cf-img/banner-logo.png">
+                    <p class="mo-color-cf-black"><span style="font-size: 24px;">2025.11.30</span><span
+                            style="font-size: 12px;">(日)</span></p>
+                    <p class="mo-color-cf-black" style="font-size: 20px;">松菸文創園區<br>(四號倉庫)</p>
+                </div>
+                <!-- 浮動按鈕（預設隱藏，滾動時顯示） -->
+                <!-- <button class="round-btn mo-fixed-btn" id="fixedBtn">
+                    <img src="./cf-img/LOGO-25526-3-010.png" alt="logo">
+                    <span>點我報名</span>
+                </button>
+                <script src="./js/banner.js"></script> -->
+            </div>
+        </section>
+        <div class="mo-tb-r" id="mo-tbR">
+            <button class="round-btn floating-btn">
+                <img src="./cf-img/LOGO-25526-3-010.png" alt="logo">
+                <span>點我報名</span>
+            </button>
+            <script>
+                window.addEventListener("scroll", function () {
+                    const btn = document.getElementById("mo-tbR");
+                    let y = window.scrollY;
+                    // top 值在 400px 與 40px 間漸變
+                    let newTop = Math.max(80, 400 - y);
+                    btn.style.top = newTop + "px";
+                });
+
+            </script>
+        </div>
+
+        <section class="mo-default-section" style="background-color:#07070700" id="mo-sec-b">
+            <div class="mo-default-content">
+                <div class="mo-sb-1">
+                    <div class="mo-sb-1-r">
+                        <p class="mo-sb1r-1 fs-h1">全台最大的抗癌派對</p>
+                        <p class="mo-sb1r-2 fs-h3">
+                            替身醫療論壇 5周年 重磅升級<br>
+                            市集 x 醫師講座 x 名人分享 x 手作體驗
+                        </p>
+                        <p class="mo-sb1r-3 fs-h3">
+                            過去多年，我們不停以行動關注健康議題，<br>
+                            藉由舉辦各式講座、市集與公益活動，<br>
+                            陪伴癌症病友與家屬走過挑戰。​<br>
+                            我們希望透過這些活動，與癌友社群建立深厚的連結，<br>
+                            成為彼此分享、理解與支持的重要平台。<br>
+                            大家可以自由逛市集、聽講座、獲取營養資訊，<br>
+                            在輕鬆地氛圍中一次滿足健康需求。​<br>
+                        </p>
+                    </div>
+                    <div class="mo-sb-1-l">
+                        <div class="mosb1l-img">
+                            <p>抗癌大使 <br>林茉晶</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mo-sb-2">
+                    <div class="mo-sb2-card-contenter">
+                        <p class="mo-sb2-title fs-h1">4大精彩環節 不容錯過</p>
+                        <div class="mo-sb2-grid">
+                            <div class="mo-sb2-card">
+                                <div class="mo-sb2-card-imgwrap">
+                                    <img class="mo-sb2-card-img" alt="" src="./cf-img/temp-mark.jpg">
+                                </div>
+                                <div class="mo-sb2-card-text">
+                                    <p class="mo-sb2-card-title fs-h2">健康市集</p>
+                                    <p class="mo-sb2-card-desc fs-h3">匯集健康品牌、醫療機構及癌症關懷資源，提供多元體驗。</p>
+                                </div>
+                            </div>
+
+                            <div class="mo-sb2-card">
+                                <div class="mo-sb2-card-imgwrap">
+                                    <img class="mo-sb2-card-img" alt="" src="./cf-img/temp-mark.jpg">
+                                </div>
+                                <div class="mo-sb2-card-text">
+                                    <p class="mo-sb2-card-title fs-h2 ">專題講座</p>
+                                    <p class="mo-sb2-card-desc fs-h3">邀請權威專家與產業 KOL 分享身心靈健康技巧。</p>
+                                </div>
+                            </div>
+
+                            <div class="mo-sb2-card">
+                                <div class="mo-sb2-card-imgwrap">
+                                    <img class="mo-sb2-card-img" alt="" src="./cf-img/temp-mark.jpg">
+                                </div>
+                                <div class="mo-sb2-card-text">
+                                    <p class="mo-sb2-card-title fs-h2">名人分享</p>
+                                    <p class="mo-sb2-card-desc fs-h3">由抗癌名人現身分享生命故事，帶來希望與啟發。</p>
+                                </div>
+                            </div>
+
+                            <div class="mo-sb2-card mo-sb2-card-last">
+                                <div class="mo-sb2-card-imgwrap">
+                                    <img class="mo-sb2-card-img" alt="" src="./cf-img/temp-mark.jpg">
+                                </div>
+                                <div class="mo-sb2-card-text">
+                                    <p class="mo-sb2-card-title fs-h2">手作體驗</p>
+                                    <p class="mo-sb2-card-desc fs-h3">透過療癒系手作活動提升健康意識。</p>
+                                </div>
+
+                                <!-- 報名工作坊圓形按鈕 -->
+                                <!-- <a href="#" class="sb2-btn">
+                                    <span>報名工作坊 >></span>
+                                </a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="background-color:#07070700" id="mo-sec-c">
+            <p class="mo-sc-title fs-h1">早鳥禮&抽獎活動<br>&癌友獨享資源</p>
+            <div class="mo-sc-content">
+                <div class="mo-sc-l">
+                    <div style="padding: 0;">
+                        <div class="mo-arc-text" style="padding: 0;">
+                            <span>簽</span><span>到</span><span>禮</span><span class="mo-gap"></span>
+                            <span>為</span><span>愛</span><span>的</span><span>人</span><span>祈</span><span>福</span>
+                        </div>
+                    </div>
+                    <img class="mo-sc-circle-img" src="./cf-img/7729717.jpg">
+                    <p class="mo-scl-txt3 fs-h4">祈福卡紙</p>
+                </div>
+                <div class="mo-sc-r">
+                    <p class="mo-scr-txt1">當日抽獎好禮超過10萬元</p>
+                    <p class="mo-scr-txt2">只要完成報名現場報到後即可符合抽獎條件</p>
+                    <div class="mo-sc-r-cards">
+                        <div class="mo-sc-card"><img src="./img/test-item.png">txtxtxtx<br>txtxxtx</div>
+                        <div class="mo-sc-card"><img src="./img/test-item.png">txtxtxtx<br>txtxxtx</div>
+                        <div class="mo-sc-card"><img src="./img/test-item.png">txtxtxtxt<br>xtxxtx</div>
+                        <div class="mo-dot-container">
+                            <div>●●●</div>
+                        </div>
+                    </div>
+                    <div class="mo-sc-r-note" style="padding-bottom: 0px;">
+                        <div class="mo-sc-r-note-txt">
+                            <p class="mo-scr-txt1">病友獨享資源</p>
+                            <p class="mo-scr-txt2">抗癌手冊、關懷包等</p>
+                        </div>
+                        <img class="mo-sc-r-note-img">
+                    </div>
+                </div>
+            </div>
+            <div class="mo-sc-btn">Coming soon</div>
+        </section>
+
+        <section class="mo-default-section" style="height: 600px;" id="mo-sec-d">
+            <div class="mo-sd-content">
+                <div class="mo-pd-50 mo-sd-txt mo-fs-light">
+                    <p class="mo-fs-large">健康市集 X 邊緣人市集</p>
+                    <p>本次活動我們與邊緣工事聯手打造全台最大的抗癌市集，<br>
+                        涵蓋「健康餐飲」、「營養保健食品」、「運動健身」、<br>
+                        「旅遊」、「健康檢測」、「新創醫療」等多元主題。</p>
+                    <p>除了有體驗式攤位、插畫工作室進駐，還有超過40家<br>
+                        販賣服飾、工藝品、生活雜貨及輕食甜點的攤位，<br>
+                        打造所有人都能盡情參與的市集派對。</p>
+                </div>
+                <div style="padding: 0 0 0 50px;">
+                    <p class="mo-ff-pacifico mo-sd-cards-title">Our Vendors</p>
+                    <div class="mo-sd-cards">
+                        <div class="mo-sd-card"><img src="./cf-img/temp-mark.jpg"></div>
+                        <div class="mo-sd-card"><img src="./cf-img/temp-mark.jpg"></div>
+                        <div class="mo-sd-card"><img src="./cf-img/temp-mark.jpg"></div>
+                        <div class="mo-sd-card"><img src="./cf-img/temp-mark.jpg"></div>
+                        <button>了解更多 >></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mo-default-section" style="height: 600px;" id="mo-sec-e">
+            <div class="mo-se-content">
+                <div class="mo-se-txt">
+                    <h2>專題講座</h2>
+                    <p>邀請權威專家與產業KOL分享身心靈健康技巧</p>
+                    <p>我們過去五年曾舉辦過多場癌症健康論壇<br>今年我們希望更多朋友一起共襄盛舉!</p>
+                    <p>共同守護每一份珍貴的日常能量</p>
+                </div>
+                <div style="height: 50%;padding: 0 50px 0 0">
+                    <p class="mo-ff-pacifico">Speakers</p>
+                    <div class="mo-se-cards">
+                        <img src="./img/MKT-CF-抗癌嘉年華活動頁面_講者相框-250910-3-010-03.png">
+                        <img src="./img/MKT-CF-抗癌嘉年華活動頁面_講者相框-250910-3-010-03.png">
+                        <img src="./img/MKT-CF-抗癌嘉年華活動頁面_講者相框-250910-3-010-03.png">
+                        <img src="./img/MKT-CF-抗癌嘉年華活動頁面_講者相框-250910-3-010-03.png">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mo-day-schedule">
+            <h2>當日流程</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>時間</th>
+                        <th>活動內容</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <footer>
+            <p>主辦單位</p>
+            <img class="mo-footer-logo" src="./cf-img/temp-mark.jpg">
+            <p>合作單位</p>
+            <div class="mo-footer-other">
+                <img class="mo-footer-logo" src="./cf-img/temp-mark.jpg">
+                <img class="mo-footer-logo" src="./cf-img/temp-mark.jpg">
+                <img class="mo-footer-logo" src="./cf-img/temp-mark.jpg">
+            </div>
+        </footer>
+    </main>
+
 
 </body>
 
