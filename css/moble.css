@@ -31,6 +31,12 @@
     font-weight: 400;
 }
 
+.fs-h5 {
+    font-size: clamp(8px, 3vw, 12px);
+    line-height: 1.5;
+    font-weight: 400;
+}
+
 
 
 :root {
@@ -210,17 +216,21 @@
 
 
 .mo-sc-circle-img {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    /* 右半邊陰影 */
 }
+
 
 .mo-sc-l {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px 40vw 150px 0;
-    background: url(../img/MKT-CF-抗癌嘉年華活動頁面_捧愛心的人-250910-3-010-03-03.png) no-repeat 80% center/50% auto;
+    justify-items: end;
+    padding: 10px 40vw 20px 0;
+    background: url(../img/MKT-CF-抗癌嘉年華活動頁面_捧愛心的人-250910-3-010-03-03.png) no-repeat right bottom/240px auto;
 }
 
 
@@ -293,3 +303,264 @@
 }
 
 /*section-c suck txt*/
+
+/* section sc-r*/
+
+.mo-scr-txt1,
+.mo-scr-txt2 {
+    text-align: right;
+}
+
+
+.mo-sc-r-cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 10px;
+}
+
+.mo-sc-card {
+    width: 25%;
+    padding: 3px;
+    margin: 0;
+    border: 0px solid black;
+    font-size: 12px;
+
+    /* 陰影效果 */
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.4);
+
+    /* 多行文字處理 */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* 限制最多 2 行 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 5%;
+}
+
+
+.mo-sc-card img {
+    width: auto;
+    height: 80px;
+    border-radius: 20%;
+    object-fit: contain;
+}
+
+.mo-sc-card {
+    display: inline-block;
+    /* 由圖片決定寬度 */
+    overflow-wrap: break-word;
+    /* 長字自動斷行 */
+    word-break: break-word;
+    /* 舊瀏覽器兼容 */
+    text-align: center;
+}
+
+.mo-dot-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    /* 垂直置中 */
+    justify-content: center;
+    /* 水平置中 (如果需要) */
+    /* 父容器要有高度，才能看出垂直置中效果 */
+    color: gray;
+    font-size: 5px;
+    letter-spacing: 2px;
+}
+
+
+.mo-sc-r-note {
+    padding: 10px 5px;
+    display: flex;
+    justify-content: end;
+}
+
+.mo-sc-r-note-img {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: contain;
+    object-position: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.mo-sc-r-note-txt {
+    text-align: right;
+    padding: 20px 20px;
+}
+
+.mo-sc-btn {
+    margin: 0 auto;
+    width: 40%;
+    text-align: center;
+    padding: 10px 5px;
+
+    /* 高度 & 左右間距 */
+    background-color: gray;
+    /* 灰底 */
+    color: white;
+    /* 白字 */
+    font-size: 18px;
+    text-align: center;
+    border-radius: 9999px;
+    /* 兩邊半圓 (膠囊效果) */
+    cursor: default;
+    /* 滑鼠移過去不會變按鈕手型，可改 pointer */
+    user-select: none;
+    /* 禁止選取文字，可選擇加或不加 */
+}
+
+#mo-sec-d {
+    width: 100%;
+    padding: 10px 20px 10px;
+    text-align: center;
+
+    background:
+        linear-gradient(to bottom,
+            #F9D5E5 0%,
+            /* 10%~80% 粉紅色 */
+            #F9D5E5 90%,
+            white 90%,
+            /* 80%~100% 白色 */
+            white 100%);
+}
+
+.mo-sd-txt img {
+    width: 80%;
+    height: auto;
+    text-align: center;
+    display: inline-block;
+    padding: 20px 0px;
+}
+
+.mo-sd-txt {
+    font-size: 3vw;
+}
+
+.mo-sd-button {
+    background-color: var(--cf-green);
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+
+    /* 顏色可自行調整 */
+    --bg: #27C2B3;
+    /* 按鈕底色 */
+    --fg: #fff;
+    /* 文字/圖示顏色 */
+
+    display: inline-flex;
+    align-items: center;
+    gap: .6em;
+    /* 固定高度（可改） */
+    padding: 4px 12px 4px 12px;
+    /* 內距 */
+    background: var(--bg);
+    color: var(--fg);
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 9999px;
+    /* 關鍵：兩端半圓 */
+    box-shadow: 0 6px 14px rgba(0, 0, 0, .12);
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.mo-sd-cards-title {
+    padding: 30px 0px 10px;
+}
+
+.mo-sd-cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 10px;
+}
+
+.mo-sd-card {
+    padding: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 5%;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.mo-sd-card img {
+    width: 80px;
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+}
+
+#mo-sec-e {
+    width: 100%;
+    padding: 10px 0 10px;
+    text-align: center;
+
+    background: url("../img/MKT-CF-抗癌嘉年華活動頁面_讀書的鯨魚-250910-3-010-03.png") no-repeat 300px 60%/250px auto;
+}
+
+.se-cards-title {
+    padding: 20px 20px 10px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.mo-se-cards {
+    display: flex;
+    justify-content: space-evenly;
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0) 0%,
+            /* 上 0~10% 白色 */
+            rgba(255, 255, 255, 0) 20%,
+            #86C4DC 20%,
+            /* 10%~80% 粉紅色 */
+            #86C4DC 80%,
+            white 80%,
+            /* 80%~100% 白色 */
+            white 100%);
+}
+
+.mo-se-cards img {
+    width: 40%;
+    height: auto;
+    object-fit: contain;
+}
+
+
+.mo-day-schedule {
+    margin: 0 auto;
+    /* 置中 */
+    padding: 50px 0;
+}
+
+.mo-day-schedule h2 {
+    text-align: center;
+    color: #72C1BA;
+    margin-bottom: 16px;
+}
+
+.mo-day-schedule table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.mo-day-schedule th {
+    background-color: #72C1BA;
+    color: #fff;
+    padding: 12px;
+    font-size: 18px;
+    border: 4px solid #fff;
+}
+
+.mo-day-schedule td {
+    background-color: #DFFFF3;
+    padding: 12px;
+    font-size: 16px;
+    border: 4px solid #fff;
+    /* 保持格線 */
+}
