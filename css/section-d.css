@@ -28,7 +28,7 @@
 }
 
 .sd-txt {
-    padding-top: 100px;
+    padding-top: 120px;
     max-width: 720px;
 }
 
@@ -108,7 +108,7 @@
 }
 
 .sd-txt-img {
-    width: 40%;
-    height: 80%;
-    background: url('../cf-img/temp-market.jpg') center bottom/auto 100%;
+    width: 30%;
+    height: 150%;
+    background: url('../img/v2/邊緣人組合示意圖-250924-3-010.png') no-repeat center bottom/contain;
 }

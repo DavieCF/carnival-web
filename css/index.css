@@ -39,9 +39,17 @@ main {
     height: 100%;
 }
 
+
 .top-banner {
     background:
-        url('../cf-img/banner-250912-3-020.jpg.png') no-repeat center bottom/contain;
+        url('../img/v2/官網首頁大圖\(組合圖\)-250923-3-020.png') no-repeat center bottom / 100% auto,
+        linear-gradient(to bottom,
+            transparent 0%,
+            transparent 90%,
+            white 90%,
+            white 100%),
+        url('../img/v2/官網首頁大圖\(背景\)-250923-3-020.png') no-repeat center center / cover;
+
 }
 
 .tb-l {
@@ -163,12 +171,12 @@ main {
 
 .sb-1-l {
     flex: 1;
-    background: url('../cf-img/茉晶替代.png') no-repeat right bottom/contain;
+    background: url('../img/v2/林茉晶去背圖檔-250925-3-010.png') no-repeat right bottom/auto 90%;
     ;
 }
 
 .sb-1-r {
-    width: 60%;
+    width: 55%;
 }
 
 .sb-1-l p {
@@ -363,6 +371,11 @@ main {
     margin: 0 auto;
     /* 置中 */
     padding: 50px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .day-schedule h2 {
@@ -372,7 +385,7 @@ main {
 }
 
 .day-schedule table {
-    width: 100%;
+    width: 960px;
     border-collapse: collapse;
     text-align: center;
 }
