@@ -45,7 +45,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 25px;
+    gap: 1px;
 }
 
 .se-cards img {
@@ -53,4 +53,36 @@
     height: 240px;
     object-fit: contain;
 
+}
+
+:root {
+    --card-w: 200px;
+    --card-h: 240px;
+    --gap: 6px;
+    --duration: 500ms;
+}
+
+.carousel {
+    --visible: 4;
+    width: calc(var(--visible) * var(--card-w) + (var(--visible) - 1) * var(--gap));
+    margin: auto;
+}
+
+.viewport {
+    overflow: hidden;
+    border: 0px solid #ddd;
+    border-radius: 8px;
+}
+
+.track {
+    display: flex;
+    gap: var(--gap);
+    transition: transform var(--duration) ease-in-out;
+}
+
+.track img {
+    flex: 0 0 var(--card-w);
+    width: var(--card-w);
+    height: var(--card-h);
+    object-fit: contain;
 }

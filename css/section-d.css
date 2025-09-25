@@ -1,7 +1,7 @@
 #sec-d {
     background:
-        url(../cf-img/temp-mark.jpg) no-repeat 80% 20% / 150px auto,
-        url(../cf-img/temp-market.jpg) no-repeat 70% 25% / 200px auto,
+        /* url(../cf-img/temp-mark.jpg) no-repeat 80% 20% / 150px auto,
+        url(../cf-img/temp-market.jpg) no-repeat 70% 25% / 200px auto, */
         linear-gradient(to bottom,
             white 0%,
             /* 上 0~10% 白色 */
@@ -29,7 +29,7 @@
 
 .sd-txt {
     padding-top: 100px;
-    width: 720px;
+    max-width: 720px;
 }
 
 .sd-txt p {
@@ -98,4 +98,17 @@
 
 .sd-cards-title {
     padding: 0 0 20px 5px;
+}
+
+.sd-content-txt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+}
+
+.sd-txt-img {
+    width: 40%;
+    height: 80%;
+    background: url('../cf-img/temp-market.jpg') center bottom/auto 100%;
 }

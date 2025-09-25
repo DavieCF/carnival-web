@@ -41,12 +41,11 @@ main {
 
 .top-banner {
     background:
-        /* url('../mk-img/MKT-CF-抗癌嘉年華主視覺配圖_右邊攤位-250526-3-010.png') no-repeat right bottom/30% auto, */
-        linear-gradient(to bottom, transparent 95%, white 5%),
-        url('../img/DD-banner.png') no-repeat center/cover;
+        url('../cf-img/banner-250912-3-020.jpg.png') no-repeat center bottom/contain;
 }
 
 .tb-l {
+    display: none;
     text-align: center;
     padding-left: 10%;
     width: 50%;
@@ -62,8 +61,11 @@ main {
     height: 75%;
 }
 
-.tb-c {
-    background: url('../cf-img/右邊攤位-250526-3-010.png') no-repeat right bottom/60% auto;
+
+
+.bannar-block {
+    width: 100%;
+    height: 60px;
 }
 
 
@@ -410,4 +412,8 @@ footer {
 .footer-other {
     display: flex;
     justify-content: center;
+}
+
+.card-3 {
+    object-position: center;
 }
