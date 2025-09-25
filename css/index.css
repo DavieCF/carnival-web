@@ -5,6 +5,16 @@
     font-family: "Chiron GoRound TC", sans-serif;
 }
 
+#sec-b,
+#sec-c,
+#sec-d,
+#sec-e,
+#sec-f {
+    scroll-margin-top: 80px;
+    /* 預留 80px 的上方空間，可依 header 高度調整 */
+}
+
+
 main {
     font-size: 30px;
 }
@@ -320,8 +330,8 @@ main {
     position: absolute;
     right: 30px;
     bottom: -15px;
-    border-radius: 1%;
-    background: #7ed7b5;
+    border-radius: 200px;
+    background: #64aa8f;
     display: flex;
     flex-direction: column;
     align-items: center;

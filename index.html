@@ -78,6 +78,10 @@
             display: none;
         }
     }
+
+    .text-sm{
+        font-size: 1.2rem;
+    }
     </style>
 </head>
 
@@ -94,15 +98,15 @@
                 </div>
                 <nav class="hidden md:flex flex-1 items-center md:justify-start lg:justify-center gap-8">
                     <a class="text-sm font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
-                        href="#">Anti-cancer Ambassadors</a>
+                        href="#sec-b">活動介紹</a>
                     <a class="text-sm font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
-                        href="#">Carnival Content</a>
+                        href="#sec-c">抽獎好禮</a>
                     <a class="text-sm font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
-                        href="#">Health Market</a>
+                        href="#sec-d">市集活動</a>
                     <a class="text-sm font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
-                        href="#">Special Lectures</a>
+                        href="#sec-e">專題講座</a>
                     <a class="text-sm font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
-                        href="#">Daily Schedule</a>
+                        href="#sec-f">活動議程</a>
                 </nav>
                 <div class="flex items-center gap-2">
                     <img src="./cf-img/logo-v3.0-TC.png" class="header-logo">
@@ -113,15 +117,15 @@
     <div class="menu fixed top-0 left-0 h-full w-[30%] bg-white p-6 md:hidden shadow-lg" id="mobile-menu">
         <nav class="flex flex-col gap-6 pt-16">
             <a class="text-base font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
-                href="#">Anti-cancer Ambassador</a>
+                href="#">活動介紹</a>
             <a class="text-base font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
-                href="#">Carnival Content</a>
+                href="#">抽獎好禮</a>
             <a class="text-base font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
-                href="#">Health Market</a>
+                href="#">市集活動</a>
             <a class="text-base font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
-                href="#">Special Lectures</a>
+                href="#">專題講座</a>
             <a class="text-base font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
-                href="#">Daily Schedule</a>
+                href="#">活動議程</a>
         </nav>
     </div>
     <!-- <main class="pt-20">
@@ -211,7 +215,7 @@
                                 </div>
                                 <div class="sb2-card-text">
                                     <p class="sb2-card-title">健康市集</p>
-                                    <p class="sb2-card-desc">匯集健康品牌、醫療機構及癌症關懷資源，提供多元體驗。</p>
+                                    <p class="sb2-card-desc">現場將匯聚多元攤位，從健康、養生到文創、飾品與美食，帶來豐富多彩的體驗。</p>
                                 </div>
                             </div>
 
@@ -241,13 +245,13 @@
                                     <img class="sb2-card-img" alt="" src="./cf-img/S__279322664.jpg ">
                                 </div>
                                 <div class="sb2-card-text">
-                                    <p class="sb2-card-title">手作體驗</p>
-                                    <p class="sb2-card-desc">透過療癒系手作活動提升健康意識。</p>
+                                    <p class="sb2-card-title">香氛教室</p>
+                                    <p class="sb2-card-desc">全程免費，跟隨專業老師體驗調配香氣的樂趣，療癒身心、創造專屬香氛。</p>
                                 </div>
 
                                 <!-- 報名工作坊圓形按鈕 -->
                                 <a href="https://accu.ps/2wxJuE" class="sb2-btn" target="_blank">
-                                    <span>報名工作坊 >></span>
+                                    <span>報名工作坊 ▶</span>
                                 </a>
                             </div>
                         </div>
@@ -258,7 +262,7 @@
 
 
         <section style="height: 650px; background-color:#07070700" id="sec-c">
-            <p class="sc-title">早鳥禮&抽獎活動&癌友獨享資源</p>
+            <p class="sc-title">線上報名抽好禮</p>
             <div class="sc-content">
                 <div class="sc-l">
                     <div style="padding: 0;">
@@ -350,8 +354,8 @@
                     <p class="scl-txt3">祈福卡紙</p>
                 </div>
                 <div class="sc-r">
-                    <p class="scr-txt1">當日抽獎好禮超過10萬元</p>
-                    <p class="scr-txt2">只要完成報名現場報到後即可符合抽獎條件</p>
+                    <p class="scr-txt1">當日抽獎好禮超過 <strong>6</strong> 萬元</p>
+                    <p class="scr-txt2">詳細抽獎條件請參考ACCUPASS</p>
                     <div class="sc-r-cards">
                         <div class="sc-card">
                             <img src="./cf-img/Hi-Q鱸魚精5入提把禮盒-combie.png">
@@ -378,8 +382,8 @@
                     </div>
                 </div>
             </div>
-            <div class="sc-btn" style="display: none;">
-                Coming soon
+            <div class="sc-btn">
+                More coming soon
             </div>
         </section>
 
@@ -389,14 +393,15 @@
                     <div class="sd-txt fs-light">
                         <p class="fs-large" style="font-weight: 700;">健康市集 X 邊緣人市集</p>
                         <p>
-                            本次活動我們與邊緣工事聯手打造全台最大的抗癌市集，<br>
-                            涵蓋「健康餐飲」、「營養保健食品」、「運動健身」、<br>
-                            「旅遊」、「健康檢測」、「新創醫療」等多元主題。
+                            本次活動我們與邊緣工事聯手打造全台最大的抗癌市集，除了涵蓋「健康餐飲」、<br>
+                            「營養保健食品」、「運動健身」、「旅遊」、「健康檢測」、「新創醫療」等多元主題外，<br>
+                            還有吸引大眾的文創展區，包含手作飾品、工藝創作、插畫設計、美食甜點與生活雜貨等，<br>
+                            讓市集不僅關乎健康，也充滿生活美學與趣味。
                         </p>
                         <p>
-                            除了有體驗式攤位、插畫工作室進駐，還有超過40家<br>
-                            販賣服飾、工藝品、生活雜貨及輕食甜點的攤位，<br>
-                            打造所有人都能盡情參與的市集派對。
+                            現場更有體驗式攤位、插畫工作室進駐，<br>
+                            以及超過 40 家品牌服飾、工藝品、輕食與特色小物，<br>
+                            打造一場人人都能盡情參與的嘉年華派對。
                         </p>
                     </div>
                     <div class="sd-txt-img">
@@ -419,7 +424,7 @@
                         <div class="sd-card">
                             <img src="./cf-img/temp-mark.jpg">
                         </div>
-                        <button>了解更多 >></button>
+                        <button>了解更多 ▶</button>
                     </div>
                 </div>
             </div>
@@ -534,7 +539,7 @@
                 </div>
             </div>
         </section>
-        <section class="day-schedule">
+        <section class="day-schedule" id="sec-f">
             <h2 style="font-weight: 700;">當日流程</h2>
             <table>
                 <thead>
@@ -715,7 +720,7 @@
 
                                 <!-- 報名工作坊圓形按鈕 -->
                                 <!-- <a href="#" class="sb2-btn">
-                                    <span>報名工作坊 >></span>
+                                    <span>報名工作坊 ▶</span>
                                 </a> -->
                             </div>
                         </div>
@@ -772,7 +777,7 @@
                         販賣服飾、工藝品、生活雜貨及輕食甜點的攤位，<br>
                         打造所有人都能盡情參與的市集派對。</p>
                 </div>
-                <button class="mo-sd-button">了解更多 >></button>
+                <button class="mo-sd-button">了解更多 ▶</button>
                 <div>
                     <p class="ff-pacifico mo-sd-cards-title fs-h1">Our Vendors</p>
                     <div class="mo-sd-cards">
