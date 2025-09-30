@@ -69,7 +69,7 @@
 .mo-tb-c {
     text-align: center;
 
-    padding: 150px 40px max(230px, 28vh);
+    padding: 0 40px 230px;
     transform: translateX(-40px);
 
 }
