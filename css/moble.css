@@ -57,7 +57,7 @@
         url('../img/DD-banner.png') no-repeat center/cover;
     ;
 
-    height: max(400px, 70vh);
+    height: max(500px, 65vh);
 
     width: 100%;
 
@@ -69,7 +69,7 @@
 .mo-tb-c {
     text-align: center;
 
-    padding-bottom: 230px;
+    padding-bottom: min(230px, 20vh);
     transform: translateX(-40px);
 
 }
