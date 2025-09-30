@@ -52,11 +52,11 @@ main {
 
 .top-banner {
     background:
-        url('../img/v2/官網首頁大圖\(組合圖\)-250923-3-020.png') no-repeat center bottom / 100% auto,
+        url('../img/v3/banner-pc-top.png') no-repeat center bottom / 100% auto,
         linear-gradient(to bottom,
             transparent 0%,
-            transparent 90%,
-            white 90%,
+            transparent 85%,
+            white 85%,
             white 100%),
         url('../img/v2/官網首頁大圖\(背景\)-250923-3-020.png') no-repeat center center / cover;
 
@@ -417,24 +417,48 @@ main {
 
 footer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #72c1bab8;
     padding: 50px 0;
     gap: 10px;
-}
+    text-align: center;
 
-.footer-logo {
-    width: 100px;
-    height: 50px;
-    object-fit: cover;
-    object-position: center;
+    font-size: 24px;
+    font-weight: 700;
 }
 
 .footer-other {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 一行最多 3 個 */
+    gap: 10px;
+    justify-items: center;
 }
+
+
+.footer-logo {
+    width: 200px;
+    height: 100px;
+    object-fit: contain;
+    object-position: center;
+    transition: all 0.3s ease;
+    /* 平滑過渡 */
+}
+
+
+.footer-logo:hover {
+    /* box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); */
+    /* 右下角陰影 */
+    /* transform: translateY(-2px); */
+    /* 微微浮起的感覺，可選 */
+}
+
+.footer-logo:hover {
+    box-shadow: 0 -20px 25px -15px rgba(0, 0, 0, 0.4) inset;
+}
+
 
 .card-3 {
     object-position: center;
