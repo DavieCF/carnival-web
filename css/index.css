@@ -421,12 +421,14 @@ footer {
     justify-content: center;
     align-items: center;
     background-color: #72c1bab8;
-    padding: 50px 0;
+    padding: 100px 0 50px;
     gap: 10px;
     text-align: center;
 
     font-size: 24px;
     font-weight: 700;
+
+    background: url(../img/v3/MKT-CF-嘉年華官網_底部波浪-250930-3-010.png) no-repeat center bottom/ auto 95%;
 }
 
 .footer-other {
