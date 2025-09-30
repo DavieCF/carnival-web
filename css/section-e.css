@@ -49,8 +49,8 @@
 }
 
 .se-cards img {
-    width: 200px;
-    height: 240px;
+    --card-w: 250px;
+    --card-h: 300px;
     object-fit: contain;
 
 }
