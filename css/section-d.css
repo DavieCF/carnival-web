@@ -5,8 +5,8 @@
         linear-gradient(to bottom,
             white 0%,
             /* 上 0~10% 白色 */
-            white 10%,
-            #F9D5E5 10%,
+            white 20%,
+            #F9D5E5 20%,
             /* 10%~80% 粉紅色 */
             #F9D5E5 90%,
             white 90%,
