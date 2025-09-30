@@ -57,7 +57,7 @@
         url('../img/DD-banner.png') no-repeat center/cover;
     ;
 
-    height: min(850px, 70vh);
+    height: max(400px, 70vh);
 
     width: 100%;
 
@@ -104,6 +104,7 @@
 .mo-color-cf-green {
     color: var(--cf-green);
     font-weight: 700;
+    font-size: 28px;
 }
 
 .mo-sb-1 {
@@ -117,7 +118,7 @@
 
 .mo-sb-1-l {
     position: relative;
-    height: 50vh;
+    height: 40vh;
     background:
         url(../img/v3/MKT-CF-抗癌嘉年華活動頁面_背景-250910-3-023.png) no-repeat center right/60% auto,
         url(../img/MKT-CF-抗癌嘉年華活動頁面_攤車插圖-250910-3-010-03.png) no-repeat left bottom / 25% auto;
@@ -142,9 +143,9 @@
 
 
 .mosb1l-img p {
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 500;
-    padding: 10vh 0 0 60px;
+    padding: 10vh 0 0 40px;
 }
 
 .mo-sb2-title {
