@@ -181,7 +181,7 @@ main {
 
 .sb-1-l {
     flex: 1;
-    background: url('../img/v3/MKT-CF-抗癌嘉年華活動頁面_背景-250910-3-023.png') no-repeat right bottom/auto 90%;
+    background: url('../img/v4/林茉晶&唐玲.png') no-repeat right bottom/auto 100%;
     ;
 }
 
@@ -381,7 +381,7 @@ main {
     margin: 0 auto;
     /* 置中 */
     padding: 50px 0;
-
+    margin-top: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -477,7 +477,17 @@ footer {
     filter: drop-shadow(0 1px 3px white);
 }
 
+.footer-note span {
+    font-size: 10px;
+    color: gray;
+    font-weight: 500;
+}
 
 .card-3 {
     object-position: center;
+}
+
+.footer-note {
+    line-height: 0.8;
+    padding-bottom: 5px;
 }
