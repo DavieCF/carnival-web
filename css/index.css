@@ -469,6 +469,11 @@ footer {
     box-shadow: 0 -20px 25px -15px rgba(0, 0, 0, 0.4) inset;
 }
 
+.footer-strong {
+
+    filter: drop-shadow(0 1px 3px white);
+}
+
 
 .card-3 {
     object-position: center;
