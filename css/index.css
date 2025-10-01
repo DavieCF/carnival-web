@@ -439,6 +439,14 @@ footer {
     justify-items: center;
 }
 
+.footer-2cards {
+    display: flex;
+    grid-template-columns: repeat(3, 1fr);
+    /* 一行最多 3 個 */
+    gap: 10px;
+    justify-content: center;
+}
+
 
 .footer-logo {
     width: 200px;
