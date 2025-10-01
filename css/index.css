@@ -171,7 +171,7 @@ main {
 }
 
 .sb-1 {
-    padding-right: 10%;
+    padding-right: 5%;
 }
 
 .sb-1-l,
@@ -181,7 +181,7 @@ main {
 
 .sb-1-l {
     flex: 1;
-    background: url('../img/v4/林茉晶&唐玲.png') no-repeat right bottom/auto 100%;
+    background: url('../img/v4/林茉晶&唐玲\(加姓名\).png') no-repeat right bottom/100% auto;
     ;
 }
 
@@ -425,7 +425,7 @@ footer {
     justify-content: center;
     align-items: center;
     padding: 100px 0 50px;
-    gap: 10px;
+    gap: 20px;
     text-align: center;
 
     font-size: 24px;

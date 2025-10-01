@@ -120,8 +120,8 @@
     position: relative;
     height: 40vh;
     background:
-        url(../img/v3/MKT-CF-抗癌嘉年華活動頁面_背景-250910-3-023.png) no-repeat center right/60% auto,
-        url(../img/MKT-CF-抗癌嘉年華活動頁面_攤車插圖-250910-3-010-03.png) no-repeat left bottom / 25% auto;
+        url('../img/v4/林茉晶&唐玲\(加姓名\).png') no-repeat center right/auto 100%,
+        url('../img/MKT-CF-抗癌嘉年華活動頁面_攤車插圖-250910-3-010-03.png') no-repeat left bottom / 25% auto;
 }
 
 
