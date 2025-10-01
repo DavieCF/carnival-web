@@ -461,14 +461,6 @@ footer {
     /* 平滑過渡 */
 }
 
-
-.footer-logo:hover {
-    /* box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); */
-    /* 右下角陰影 */
-    /* transform: translateY(-2px); */
-    /* 微微浮起的感覺，可選 */
-}
-
 .footer-logo:hover {
     box-shadow: 0 -20px 25px -15px rgba(0, 0, 0, 0.4) inset;
 }
