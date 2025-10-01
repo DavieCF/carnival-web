@@ -530,6 +530,8 @@
     margin: 0 auto;
     /* 置中 */
     padding: 50px 0;
+
+    background: url(../img/v3/MKT-CF-嘉年華官網_底部波浪-250930-3-010.png) no-repeat center bottom/ auto 100%
 }
 
 .mo-day-schedule h2 {
@@ -553,10 +555,10 @@
 }
 
 .mo-day-schedule td {
-    background-color: #DFFFF3;
+    background-color: rgba(255, 255, 255, 0.7);
     padding: 12px;
     font-size: 16px;
-    border: 4px solid #fff;
+    border: 4px solid #DFFFF3;
     /* 保持格線 */
 }
 
