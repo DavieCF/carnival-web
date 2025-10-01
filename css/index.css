@@ -89,9 +89,9 @@ main {
 
 /* 共用按鈕樣式 */
 .round-btn {
-    width: 100px;
+    width: 10vw;
     /* 按鈕大小，可調 */
-    height: 100px;
+    height: 10vw;
     border-radius: 50%;
     /* 正圓 */
     background-color: #D7FFF1;
@@ -114,7 +114,7 @@ main {
 
 /* 按鈕內圖片保持比例 */
 .round-btn img {
-    max-width: 40%;
+    max-width: 50%;
     /* 控制在圓形內大小 */
     height: auto;
     /* 保持比例 */
