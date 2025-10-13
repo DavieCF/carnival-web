@@ -1,314 +1,746 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
+{% comment %}
+Section: Blog Show (Single-select blogs; main area uses the first selected blog)
+- Main area: use the first non-blank among main_blog_1~3, show 2~6 posts (1 featured + lists).
+- Blocks: each block shows its blog's latest 6 posts as cards.
+- Sidebar: links to block blogs; tags from main + blocks, de-duped.
+- Type: article.metafields.custom.article-type
+- Tags: article.tags -> ./all-blog-post?tag-name={tag}
+{% endcomment %}
 
-<head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>熱門文章</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
-    <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        primary: "#14b8a6", // teal-500
-                        "background-light": "#f9fafb", // gray-50
-                        "background-dark": "#111827", // gray-900
-                        "card-light": "#ffffff",
-                        "card-dark": "#1f2937", // gray-800
-                        "text-light": "#1f2937", // gray-800
-                        "text-dark": "#f3f4f6", // gray-100
-                        "subtle-light": "#6b7280", // gray-500
-                        "subtle-dark": "#9ca3af", // gray-400
-                        "border-light": "#e5e7eb", // gray-200
-                        "border-dark": "#374151", // gray-700
-                    },
-                    fontFamily: {
-                        display: ["Noto Sans TC", "sans-serif"],
-                    },
-                    borderRadius: {
-                        'lg': "0.75rem",
-                    },
-                },
-            },
-        };
-    </script>
-    <style>
-        body {
-            font-family: 'Noto Sans TC', sans-serif;
-        }
-    </style>
-</head>
+<section class="blog-show-root">
+    <div class="blog-show-container">
+        {% comment %} ===== Resolve primary blog for main area ===== {% endcomment %}
+        {% assign primary_blog = nil %}
+        {% if section.settings.main_blog_1 %}{% assign primary_blog = section.settings.main_blog_1 %}{% endif %}
+        {% if primary_blog == nil and section.settings.main_blog_2 %}{% assign primary_blog =
+        section.settings.main_blog_2 %}{% endif %}
+        {% if primary_blog == nil and section.settings.main_blog_3 %}{% assign primary_blog =
+        section.settings.main_blog_3 %}{% endif %}
 
-<body class="bg-background-light dark:bg-background-dark font-display">
-    <div class="container mx-auto px-4 py-12">
-        <div class="text-center mb-12">
-        </div>
-        <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
-            <main class="w-full lg:w-2/3">
-                <h2 class="text-3xl font-bold mb-6 text-text-light dark:text-text-dark border-l-4 border-primary pl-4">
-                    最新文章</h2>
-                <div
-                    class="bg-card-light dark:bg-card-dark rounded-lg shadow-lg overflow-hidden mb-12 border border-border-light dark:border-border-dark hover:shadow-xl transition-shadow duration-300">
-                    <div class="md:flex">
-                        <div class="md:w-1/2">
-                            <img alt="最新文章封面" class="h-full w-full object-cover"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuABgV7I4izc-EWfoMx_yRGAToh7GDCosWVMrJzXCbhAKsa41eIbDW9wLjAAHwcjAF6JEQZjOYTzt17xKWYQBdfBJs2AITNek68lUllIbUN-khYLDSh9wc0G0wQUrBTGjfyfCniMU3MHLU5uyJZ8tJz1O7HfJHR4NnIVHICnHD3eX_QOsUarJayj4Ff3hjJF_4W0EJbQjh2mfVdSWXTGN7ZLDFt4IJHR2Krj-g-TgVhW8hCxQ5OS8t5tG8y4cvqR4bQTJgd3mcAUecvv" />
-                        </div>
-                        <div class="p-6 md:w-1/2 flex flex-col justify-between">
-                            <div>
-                                <div
-                                    class="flex justify-between items-center text-sm text-subtle-light dark:text-subtle-dark mb-2">
-                                    <span class="text-primary font-semibold">癌症新知</span>
-                                    <span>2024年 7月 26日</span>
-                                </div>
-                                <h3 class="text-2xl font-bold mb-3 text-text-light dark:text-text-dark">
-                                    探索癌症治療的新視野：精準醫療如何改變未來</h3>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span
-                                        class="bg-primary/10 text-primary text-xs font-semibold px-2.5 py-0.5 rounded-full">#精準醫療</span>
-                                    <span
-                                        class="bg-primary/10 text-primary text-xs font-semibold px-2.5 py-0.5 rounded-full">#癌症治療</span>
-                                </div>
-                                <p class="text-subtle-light dark:text-subtle-dark mb-6 text-base leading-relaxed">
-                                    隨著基因測序技術的飛速發展，精準醫療已成為癌症治療的核心策略。本文將深入探討精準醫療的原理、應用，以及它如何為患者帶來前所未有的希望。</p>
-                            </div>
-                            <div class="text-right">
-                                <a class="inline-flex items-center gap-2 bg-primary text-white font-bold py-2 px-6 rounded-full hover:bg-teal-600 transition-colors duration-300"
-                                    href="#">
-                                    繼續閱讀
-                                    <span class="material-icons text-sm">arrow_forward</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+        {% assign show_n = section.settings.num_articles | default: 3 %}
+
+        <main>
+            <h2 class="blog-show-section-title">
+                {{ section.settings.main_title | default: '最新文章' }}
+            </h2>
+
+            {% if primary_blog and primary_blog.articles_count > 0 %}
+            {% comment %} ===== Featured (first article) ===== {% endcomment %}
+            {% assign featured = primary_blog.articles.first %}
+
+            <article class="blog-show-featured">
+                <div class="blog-show-featured-media">
+                    {% if featured.image %}
+                    <img src="{{ featured.image | image_url: width: 1600 }}" alt="{{ featured.title | escape }}">
+                    {% elsif section.settings.main_fallback_image != blank %}
+                    <img src="{{ section.settings.main_fallback_image | image_url: width: 1600 }}"
+                        alt="{{ featured.title | escape }}">
+                    {% endif %}
                 </div>
-                <div class="space-y-6">
-                    <div
-                        class="bg-card-light dark:bg-card-dark p-4 rounded-lg shadow-md flex items-center justify-between border border-border-light dark:border-border-dark flex-wrap sm:flex-nowrap gap-4 hover:border-primary transition-all duration-300">
-                        <div class="flex items-center space-x-4">
-                            <div class="text-center w-16 flex-shrink-0">
-                                <p class="text-2xl font-bold text-primary dark:text-teal-400">11</p>
-                                <p class="text-sm text-subtle-light dark:text-subtle-dark">3月</p>
-                            </div>
-                            <div class="flex-grow">
-                                <h3 class="font-bold text-lg text-text-light dark:text-text-dark mb-1">
-                                    乳癌患者可以買保險嗎？可以買哪些保險？</h3>
-                                <p class="text-sm text-subtle-light dark:text-subtle-dark line-clamp-2"><span
-                                        class="font-semibold text-primary/80 dark:text-teal-500">保險規劃</span> -
-                                    乳癌是全球女性最常見的癌症之一，本文將探討乳癌患者在保險選擇上的可能性與限制。</p>
-                            </div>
-                        </div>
-                        <a class="bg-primary/10 text-primary whitespace-nowrap font-bold py-2 px-4 rounded-full hover:bg-primary hover:text-white transition-colors duration-300 text-sm ml-auto"
-                            href="#">閱讀更多</a>
+                <div class="blog-show-featured-body">
+                    <div class="blog-show-meta">
+                        <span class="blog-show-pill">{{ featured.metafields.custom.article-type.value }}</span>
+                        <span>{{ featured.published_at | date: "%Y年 %-m月 %-d日" }}</span>
                     </div>
-                    <div
-                        class="bg-card-light dark:bg-card-dark p-4 rounded-lg shadow-md flex items-center justify-between border border-border-light dark:border-border-dark flex-wrap sm:flex-nowrap gap-4 hover:border-primary transition-all duration-300">
-                        <div class="flex items-center space-x-4">
-                            <div class="text-center w-16 flex-shrink-0">
-                                <p class="text-2xl font-bold text-primary dark:text-teal-400">28</p>
-                                <p class="text-sm text-subtle-light dark:text-subtle-dark">2月</p>
-                            </div>
-                            <div class="flex-grow">
-                                <h3 class="font-bold text-lg text-text-light dark:text-text-dark mb-1">化療期間的營養補充全攻略</h3>
-                                <p class="text-sm text-subtle-light dark:text-subtle-dark line-clamp-2"><span
-                                        class="font-semibold text-primary/80 dark:text-teal-500">營養與副作用</span> -
-                                    提供化療患者在治療期間的飲食建議與營養補充品選擇，幫助維持體力，減少副作用。</p>
-                            </div>
-                        </div>
-                        <a class="bg-primary/10 text-primary whitespace-nowrap font-bold py-2 px-4 rounded-full hover:bg-primary hover:text-white transition-colors duration-300 text-sm ml-auto"
-                            href="#">閱讀更多</a>
+                    <h3 class="blog-show-featured-title blog-show-clamp-2">
+                        {{ featured.title }}
+                    </h3>
+                    <div class="blog-show-featured-tags">
+                        {% for tag in featured.tags %}
+                        <a class="blog-show-pill" href="./all-blog-post?tag-name={{ tag | url_encode }}"
+                            target="_blank">#{{ tag }}</a>
+                        {% endfor %}
                     </div>
+                    <p class="blog-show-featured-desc blog-show-clamp-3">
+                        {{ featured.excerpt_or_content | strip_html | truncatewords: 40 }}
+                    </p>
+                    <a class="blog-show-btn" href="{{ featured.url }}">繼續閱讀</a>
                 </div>
-                <div class="mt-16">
-                    <h2
-                        class="text-3xl font-bold mb-6 text-text-light dark:text-text-dark border-l-4 border-primary pl-4">
-                        營養與副作用</h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-                        <div
-                            class="bg-card-light dark:bg-card-dark rounded-lg shadow-lg overflow-hidden border border-border-light dark:border-border-dark flex flex-col hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-                            <img alt="文章封面：癌症與心理健康" class="w-full h-48 object-cover"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_W3XVogZLq7VfUVueCyN2hlsbs0TDfsVX2BikNRlhub5hQ-4g6eHlgelkivF3zeB_WlVJLQAIiT8rLWQ8HGE6ZOPjNjSB3ZQMajVGGdtb7kD_1vSuLKZ13xyEnMmkw335Of5z7yXzP8om4CTbi2LCRXPCSHFdo7Nz4qaBurmjpRIN-LEHNz7Si7eeYPxSCfZcp1gU3zfQlTrjd2QpbIc2BzUb2vbQl4yIXEDGbyG7cC5QfQC0__VoEn0wHX5X5sOp0mDztcS8cHxF" />
-                            <div class="p-5 flex flex-col flex-grow">
-                                <span class="text-primary text-sm font-semibold mb-2">心理支持</span>
-                                <h3 class="font-bold text-lg mb-3 flex-grow text-text-light dark:text-text-dark">
-                                    面對癌症的心理調適與壓力管理</h3>
-                                <p class="text-sm text-subtle-light dark:text-subtle-dark mb-4 line-clamp-3">
-                                    探討癌症診斷後常見的心理衝擊，並提供有效的壓力管理技巧與尋求支持的管道。</p>
-                                <div class="mt-auto text-right">
-                                    <a class="text-primary font-bold hover:text-teal-600 transition-colors"
-                                        href="#">繼續閱讀 →</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-card-light dark:bg-card-dark rounded-lg shadow-lg overflow-hidden border border-border-light dark:border-border-dark flex flex-col hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-                            <img alt="文章封面：免疫療法" class="w-full h-48 object-cover"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6nR1XWWtOpHYV5tso_yFKKIr-nympOeyOfw9QwhRgH-Xd5lO5AXbwdKwjmzwnKGUW4Gp6IJdA2NpBsrdV7hpRJCqhAWmEOgQSjVgWpMVzyTKd5hLbvOAaLWs75nQUkKi9pyVOEgCuqKNhGXVzwro_huM5Qm1il9ogNMSUQLjdF4VuUcXV4_z8_l0iTfu7QSXM9JVnS1UYAR9UoRxk0Cz2DZv-UnQbcvuMeE3SmvQ0K3xaQh1yNT8JoaIatibWzg2IbnVIvQUauOec" />
-                            <div class="p-5 flex flex-col flex-grow">
-                                <span class="text-primary text-sm font-semibold mb-2">治療新知</span>
-                                <h3 class="font-bold text-lg mb-3 flex-grow text-text-light dark:text-text-dark">
-                                    免疫療法：喚醒自身免疫系統對抗癌症</h3>
-                                <p class="text-sm text-subtle-light dark:text-subtle-dark mb-4 line-clamp-3">
-                                    介紹免疫療法的基本原理、不同類型，以及其在各種癌症治療中的應用與成效。</p>
-                                <div class="mt-auto text-right">
-                                    <a class="text-primary font-bold hover:text-teal-600 transition-colors"
-                                        href="#">繼續閱讀 →</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-card-light dark:bg-card-dark rounded-lg shadow-lg overflow-hidden border border-border-light dark:border-border-dark flex flex-col hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-                            <img alt="文章封面：癌症篩檢" class="w-full h-48 object-cover"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0syqVr6F7Zv5a6f8BWqP31JRtuKcT_KXxN2kjIvPmT7-ou9g3CXg89lzHV5X_4DCpiax7oHc4jSbR48G4QkWJk15BwUhcxMgMHTxyNeFtlWbTcnB8KxeRYTkdcAOyb1wVoFgvwYSnSaICEqFQiX4M_TOc8geFVWGt8e9rrlXHJvP72undualf5uUUqTN1JBqJRA1BqDvvD0Cl29UsM_mFs2fICJs_Uy-cfCwt3o5jkHrJIxw-AEcbU_WqmrNuiMp80E0dnK4myOaN" />
-                            <div class="p-5 flex flex-col flex-grow">
-                                <span class="text-primary text-sm font-semibold mb-2">預防保健</span>
-                                <h3 class="font-bold text-lg mb-3 flex-grow text-text-light dark:text-text-dark">
-                                    早期發現是關鍵：不可不知的癌症篩檢</h3>
-                                <p class="text-sm text-subtle-light dark:text-subtle-dark mb-4 line-clamp-3">
-                                    整理目前國健署提供的四大癌症篩檢資訊，以及建議的篩檢年齡與頻率。</p>
-                                <div class="mt-auto text-right">
-                                    <a class="text-primary font-bold hover:text-teal-600 transition-colors"
-                                        href="#">繼續閱讀 →</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            </article>
+
+            {% comment %} ===== List items (next up to N-1) ===== {% endcomment %}
+            {% assign rest_count = show_n | minus: 1 %}
+            {% if rest_count > 0 %}
+            {% for a in primary_blog.articles limit: rest_count offset: 1 %}
+            <div class="blog-show-list">
+                <div class="blog-show-date">
+                    <div class="blog-show-d">{{ a.published_at | date: "%-d" }}</div>
+                    <div class="blog-show-m">{{ a.published_at | date: "%-m月" }}</div>
                 </div>
-                <div class="mt-16">
-                    <h2
-                        class="text-3xl font-bold mb-6 text-text-light dark:text-text-dark border-l-4 border-primary pl-4">
-                        病了才知識 Podcast</h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-                        <div
-                            class="bg-card-light dark:bg-card-dark rounded-lg shadow-lg overflow-hidden border border-border-light dark:border-border-dark flex flex-col hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-                            <img alt="文章封面：癌症與心理健康" class="w-full h-48 object-cover"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_W3XVogZLq7VfUVueCyN2hlsbs0TDfsVX2BikNRlhub5hQ-4g6eHlgelkivF3zeB_WlVJLQAIiT8rLWQ8HGE6ZOPjNjSB3ZQMajVGGdtb7kD_1vSuLKZ13xyEnMmkw335Of5z7yXzP8om4CTbi2LCRXPCSHFdo7Nz4qaBurmjpRIN-LEHNz7Si7eeYPxSCfZcp1gU3zfQlTrjd2QpbIc2BzUb2vbQl4yIXEDGbyG7cC5QfQC0__VoEn0wHX5X5sOp0mDztcS8cHxF" />
-                            <div class="p-5 flex flex-col flex-grow">
-                                <span class="text-primary text-sm font-semibold mb-2">心理支持</span>
-                                <h3 class="font-bold text-lg mb-3 flex-grow text-text-light dark:text-text-dark">
-                                    面對癌症的心理調適與壓力管理</h3>
-                                <p class="text-sm text-subtle-light dark:text-subtle-dark mb-4 line-clamp-3">
-                                    探討癌症診斷後常見的心理衝擊，並提供有效的壓力管理技巧與尋求支持的管道。</p>
-                                <div class="mt-auto text-right">
-                                    <a class="text-primary font-bold hover:text-teal-600 transition-colors"
-                                        href="#">繼續閱讀 →</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-card-light dark:bg-card-dark rounded-lg shadow-lg overflow-hidden border border-border-light dark:border-border-dark flex flex-col hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-                            <img alt="文章封面：免疫療法" class="w-full h-48 object-cover"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6nR1XWWtOpHYV5tso_yFKKIr-nympOeyOfw9QwhRgH-Xd5lO5AXbwdKwjmzwnKGUW4Gp6IJdA2NpBsrdV7hpRJCqhAWmEOgQSjVgWpMVzyTKd5hLbvOAaLWs75nQUkKi9pyVOEgCuqKNhGXVzwro_huM5Qm1il9ogNMSUQLjdF4VuUcXV4_z8_l0iTfu7QSXM9JVnS1UYAR9UoRxk0Cz2DZv-UnQbcvuMeE3SmvQ0K3xaQh1yNT8JoaIatibWzg2IbnVIvQUauOec" />
-                            <div class="p-5 flex flex-col flex-grow">
-                                <span class="text-primary text-sm font-semibold mb-2">治療新知</span>
-                                <h3 class="font-bold text-lg mb-3 flex-grow text-text-light dark:text-text-dark">
-                                    免疫療法：喚醒自身免疫系統對抗癌症</h3>
-                                <p class="text-sm text-subtle-light dark:text-subtle-dark mb-4 line-clamp-3">
-                                    介紹免疫療法的基本原理、不同類型，以及其在各種癌症治療中的應用與成效。</p>
-                                <div class="mt-auto text-right">
-                                    <a class="text-primary font-bold hover:text-teal-600 transition-colors"
-                                        href="#">繼續閱讀 →</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-card-light dark:bg-card-dark rounded-lg shadow-lg overflow-hidden border border-border-light dark:border-border-dark flex flex-col hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-                            <img alt="文章封面：免疫療法" class="w-full h-48 object-cover"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6nR1XWWtOpHYV5tso_yFKKIr-nympOeyOfw9QwhRgH-Xd5lO5AXbwdKwjmzwnKGUW4Gp6IJdA2NpBsrdV7hpRJCqhAWmEOgQSjVgWpMVzyTKd5hLbvOAaLWs75nQUkKi9pyVOEgCuqKNhGXVzwro_huM5Qm1il9ogNMSUQLjdF4VuUcXV4_z8_l0iTfu7QSXM9JVnS1UYAR9UoRxk0Cz2DZv-UnQbcvuMeE3SmvQ0K3xaQh1yNT8JoaIatibWzg2IbnVIvQUauOec" />
-                            <div class="p-5 flex flex-col flex-grow">
-                                <span class="text-primary text-sm font-semibold mb-2">治療新知</span>
-                                <h3 class="font-bold text-lg mb-3 flex-grow text-text-light dark:text-text-dark">
-                                    免疫療法：喚醒自身免疫系統對抗癌症</h3>
-                                <p class="text-sm text-subtle-light dark:text-subtle-dark mb-4 line-clamp-3">
-                                    介紹免疫療法的基本原理、不同類型，以及其在各種癌症治療中的應用與成效。</p>
-                                <div class="mt-auto text-right">
-                                    <a class="text-primary font-bold hover:text-teal-600 transition-colors"
-                                        href="#">繼續閱讀 →</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-card-light dark:bg-card-dark rounded-lg shadow-lg overflow-hidden border border-border-light dark:border-border-dark flex flex-col hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-                            <img alt="文章封面：癌症篩檢" class="w-full h-48 object-cover"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0syqVr6F7Zv5a6f8BWqP31JRtuKcT_KXxN2kjIvPmT7-ou9g3CXg89lzHV5X_4DCpiax7oHc4jSbR48G4QkWJk15BwUhcxMgMHTxyNeFtlWbTcnB8KxeRYTkdcAOyb1wVoFgvwYSnSaICEqFQiX4M_TOc8geFVWGt8e9rrlXHJvP72undualf5uUUqTN1JBqJRA1BqDvvD0Cl29UsM_mFs2fICJs_Uy-cfCwt3o5jkHrJIxw-AEcbU_WqmrNuiMp80E0dnK4myOaN" />
-                            <div class="p-5 flex flex-col flex-grow">
-                                <span class="text-primary text-sm font-semibold mb-2">預防保健</span>
-                                <h3 class="font-bold text-lg mb-3 flex-grow text-text-light dark:text-text-dark">
-                                    早期發現是關鍵：不可不知的癌症篩檢</h3>
-                                <p class="text-sm text-subtle-light dark:text-subtle-dark mb-4 line-clamp-3">
-                                    整理目前國健署提供的四大癌症篩檢資訊，以及建議的篩檢年齡與頻率。</p>
-                                <div class="mt-auto text-right">
-                                    <a class="text-primary font-bold hover:text-teal-600 transition-colors"
-                                        href="#">繼續閱讀 →</a>
-                                </div>
-                            </div>
-                        </div>
+                <div class="blog-show-list-main">
+                    <div class="blog-show-list-title blog-show-ellipsis">
+                        {{ a.title }}
                     </div>
+                    <p class="blog-show-list-sub blog-show-ellipsis">
+                        <strong style="color:var(--blog-show-teal)">{{ a.metafields.custom.article-type.value
+                            }}</strong>
+                        － {{ a.excerpt_or_content | strip_html | truncate: 80 }}
+                    </p>
                 </div>
-            </main>
-            <aside class="w-full lg:w-1/3">
-                <div class="sticky top-8">
-                    <div
-                        class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-lg border border-border-light dark:border-border-dark">
-                        <h3 class="text-xl font-bold mb-4 text-text-light dark:text-text-dark flex items-center gap-2">
-                            <span class="material-icons text-primary">folder</span>
-                            文章部落格
-                        </h3>
-                        <nav class="space-y-2">
-                            <a class="flex items-center justify-between text-text-light dark:text-text-dark font-semibold py-3 px-4 rounded-md hover:bg-primary/10 dark:hover:bg-primary/20 group transition-colors"
-                                href="https://example.com/blog1" target="_blank">
-                                <span>醫師陪你抗癌</span>
-                                <span
-                                    class="material-icons text-subtle-light dark:text-subtle-dark group-hover:text-primary transition-colors text-base">open_in_new</span>
-                            </a>
-                            <a class="flex items-center justify-between text-text-light dark:text-text-dark font-semibold py-3 px-4 rounded-md hover:bg-primary/10 dark:hover:bg-primary/20 group transition-colors"
-                                href="https://example.com/blog2" target="_blank">
-                                <span>照護導航</span>
-                                <span
-                                    class="material-icons text-subtle-light dark:text-subtle-dark group-hover:text-primary transition-colors text-base">open_in_new</span>
-                            </a>
-                            <a class="flex items-center justify-between text-text-light dark:text-text-dark font-semibold py-3 px-4 rounded-md hover:bg-primary/10 dark:hover:bg-primary/20 group transition-colors"
-                                href="https://example.com/blog3" target="_blank">
-                                <span>營養與副作用</span>
-                                <span
-                                    class="material-icons text-subtle-light dark:text-subtle-dark group-hover:text-primary transition-colors text-base">open_in_new</span>
-                            </a>
-                            <a class="flex items-center justify-between text-text-light dark:text-text-dark font-semibold py-3 px-4 rounded-md hover:bg-primary/10 dark:hover:bg-primary/20 group transition-colors"
-                                href="https://example.com/blog4" target="_blank">
-                                <span>病了才知識 Podcast</span>
-                                <span
-                                    class="material-icons text-subtle-light dark:text-subtle-dark group-hover:text-primary transition-colors text-base">open_in_new</span>
-                            </a>
-                        </nav>
+                <a class="blog-show-list-btn" href="{{ a.url }}">閱讀更多</a>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% else %}
+            <p>（尚未選擇主區網誌或該網誌沒有文章）</p>
+            {% endif %}
+
+            {% comment %} ===== Blocks: each blog shows latest 6 as cards ===== {% endcomment %}
+            {% for block in section.blocks %}
+            {% assign bobj = block.settings.blog %}
+            {% if bobj and bobj.articles_count > 0 %}
+            <h2 class="blog-show-section-title" style="margin-top:30px;">{{ bobj.title }}</h2>
+            <div class="blog-show-grid">
+                {% for article in bobj.articles limit: 6 %}
+                <article class="blog-show-card">
+                    <div class="blog-show-card-media">
+                        {% if article.image %}
+                        <img src="{{ article.image | image_url: width: 1200 }}" alt="{{ article.title | escape }}">
+                        {% elsif block.settings.fallback_image != blank %}
+                        <img src="{{ block.settings.fallback_image | image_url: width: 1200 }}"
+                            alt="{{ article.title | escape }}">
+                        {% endif %}
                     </div>
-                    <div
-                        class="mt-8 bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-lg border border-border-light dark:border-border-dark">
-                        <h3 class="text-xl font-bold mb-4 text-text-light dark:text-text-dark flex items-center gap-2">
-                            <span class="material-icons text-primary">local_offer</span>
-                            熱門標籤
-                        </h3>
-                        <div class="flex flex-wrap gap-2">
-                            <a class="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-semibold px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-colors dark:hover:bg-primary"
-                                href="#">#乳癌</a>
-                            <a class="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-semibold px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-colors dark:hover:bg-primary"
-                                href="#">#化療</a>
-                            <a class="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-semibold px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-colors dark:hover:bg-primary"
-                                href="#">#營養</a>
-                            <a class="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-semibold px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-colors dark:hover:bg-primary"
-                                href="#">#標靶治療</a>
-                            <a class="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-semibold px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-colors dark:hover:bg-primary"
-                                href="#">#保險</a>
+                    <div class="blog-show-card-body">
+                        <div class="blog-show-info">
+                            <div class="blog-show-type">{{ article.metafields.custom.article-type.value }}</div>
+                            <div class="blog-show-tag">
+                                {% if article.tags.first %}#{{ article.tags.first }}{% endif %}
+                            </div>
                         </div>
+                        <h4 class="blog-show-clamp-2">{{ article.title }}</h4>
+                        <p class="blog-show-clamp-2">{{ article.excerpt_or_content | strip_html | truncatewords: 25 }}
+                        </p>
+                        <a class="blog-show-more" href="{{ article.url }}">繼續閱讀 →</a>
                     </div>
-                </div>
-            </aside>
-        </div>
+                </article>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endfor %}
+        </main>
+
+        {% comment %} ===== Sidebar ===== {% endcomment %}
+        <aside>
+            <div class="blog-show-aside-wrap">
+                <section class="blog-show-aside-box">
+                    <h3 class="blog-show-aside-title">{{ section.settings.aside_title }}</h3>
+                    <nav class="blog-show-aside-links">
+                        {% assign handles_seen = '' %}
+                        {% for block in section.blocks %}
+                        {% if block.settings.blog %}
+                        {% assign bh = block.settings.blog.handle %}
+                        {% unless handles_seen contains bh %}
+                        {% capture handles_seen %}{{ handles_seen }} {{ bh }}{% endcapture %}
+                        <a href="{{ block.settings.blog.url }}" target="_blank">{{ block.settings.blog.title }}
+                            <span>↗</span></a>
+                        {% endunless %}
+                        {% endif %}
+                        {% endfor %}
+                    </nav>
+                </section>
+
+                <section class="blog-show-aside-box">
+                    <h3 class="blog-show-aside-title">🏷 熱門標籤</h3>
+                    <div class="blog-show-tags">
+                        {% comment %} Collect tags from main + blocks (dedupe by string capture) {% endcomment %}
+                        {% assign tags_seen = '' %}
+                        {% if primary_blog %}
+                        {% for a in primary_blog.articles limit: show_n %}
+                        {% for t in a.tags %}
+                        {% unless tags_seen contains t %}
+                        {% capture tags_seen %}{{ tags_seen }}|{{ t }}{% endcapture %}
+                        <a href="./all-blog-post?tag-name={{ t | url_encode }}" target="_blank">#{{ t }}</a>
+                        {% endunless %}
+                        {% endfor %}
+                        {% endfor %}
+                        {% endif %}
+                        {% for block in section.blocks %}
+                        {% if block.settings.blog %}
+                        {% for a in block.settings.blog.articles limit: 50 %}
+                        {% for t in a.tags %}
+                        {% unless tags_seen contains t %}
+                        {% capture tags_seen %}{{ tags_seen }}|{{ t }}{% endcapture %}
+                        <a href="./all-blog-post?tag-name={{ t | url_encode }}" target="_blank">#{{ t }}</a>
+                        {% endunless %}
+                        {% endfor %}
+                        {% endfor %}
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </section>
+            </div>
+        </aside>
     </div>
+</section>
 
-</body>
+{% schema %}
+{
+"name": "Blog Show",
+"settings": [
+{ "type": "text", "id": "main_title", "label": "主標題", "default": "最新文章" },
+{ "type": "blog", "id": "main_blog_1", "label": "主區網誌 1" },
+{ "type": "blog", "id": "main_blog_2", "label": "主區網誌 2（可留空）" },
+{ "type": "blog", "id": "main_blog_3", "label": "主區網誌 3（可留空）" },
+{
+"type": "range",
+"id": "num_articles",
+"label": "主區顯示最新文章數量",
+"min": 2,
+"max": 6,
+"step": 1,
+"default": 3
+},
+{ "type": "image_picker", "id": "main_fallback_image", "label": "主區文章預設圖片" },
+{ "type": "text", "id": "aside_title", "label": "側欄標題", "default": "📁 分類" },
+],
+"blocks": [
+{
+"type": "blog_block",
+"name": "部落格小區塊",
+"limit": 6,
+"settings": [
+{ "type": "blog", "id": "blog", "label": "選擇要顯示的部落格" },
+{ "type": "image_picker", "id": "fallback_image", "label": "此區塊文章預設圖片" }
+]
+}
+],
+"presets": [
+{ "name": "Blog Show", "category": "Blog" }
+]
+}
+{% endschema %}
 
-</html>
+<style>
+    /*
+        :root {
+            --blog-show-bg: #f7f9fb;
+            --blog-show-card: #fff;
+            --blog-show-ink: #1f2937;
+            --blog-show-muted: #6b7280;
+            --blog-show-teal: #14b8a6;
+            --blog-show-teal-d: #0f9c8e;
+            --blog-show-line: #e5e7eb;
+            --blog-show-shadow: 0 6px 18px rgba(15, 23, 42, .06);
+            --blog-show-radius: 14px;
+            --blog-show-radius-sm: 10px;
+            --blog-show-gap: 24px;
+        }
+
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+        
+        body {
+            margin: 0;
+            font-family: "Noto Sans TC", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            color: var(--blog-show-ink);
+            background: var(--blog-show-bg);
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            overflow-wrap: anywhere;
+            word-break: normal;
+            hyphens: auto;
+        }
+        */
+
+    /* 建議：把變數也改掛在 .blog-show-root，避免全域污染*/
+    .blog-show-root {
+        --blog-show-bg: #f7f9fb;
+        --blog-show-card: #fff;
+        --blog-show-ink: #1f2937;
+        --blog-show-muted: #6b7280;
+        --blog-show-teal: #14b8a6;
+        --blog-show-teal-d: #0f9c8e;
+        --blog-show-line: #e5e7eb;
+        --blog-show-shadow: 0 6px 18px rgba(15, 23, 42, .06);
+        --blog-show-radius: 14px;
+        --blog-show-radius-sm: 10px;
+        --blog-show-gap: 24px;
+
+    }
+
+
+    /* 只在本區塊內套用 box-sizing */
+    .blog-show-root :where(*) {
+        box-sizing: border-box;
+    }
+
+    /* 不再使用 html, body；改用容器本身控制高度與排版細節 */
+    .blog-show-root {
+        /* 若需要滿版高度，用 viewport 單位，避免依賴 body/html */
+        min-height: 100dvh;
+
+        /* 原本放在 body 的樣式，改放到容器 */
+        margin: 0;
+        /* 只影響容器，不會清掉整頁的 body margin */
+        font-family: "Noto Sans TC", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        color: var(--blog-show-ink);
+        background: var(--blog-show-bg);
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        overflow-wrap: anywhere;
+        word-break: normal;
+        hyphens: auto;
+    }
+
+
+    /* clamp/ellipsis 工具 */
+    .blog-show-ellipsis {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis
+    }
+
+    .blog-show-clamp-1,
+    .blog-show-clamp-2,
+    .blog-show-clamp-3,
+    .blog-show-clamp-4 {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .blog-show-clamp-1 {
+        -webkit-line-clamp: 1
+    }
+
+    .blog-show-clamp-2 {
+        -webkit-line-clamp: 2
+    }
+
+    .blog-show-clamp-3 {
+        -webkit-line-clamp: 3
+    }
+
+    .blog-show-clamp-4 {
+        -webkit-line-clamp: 4
+    }
+
+    /* 版面 */
+    .blog-show-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 16px 64px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 320px;
+        gap: var(--blog-show-gap);
+    }
+
+    main {
+        min-width: 0
+    }
+
+    aside {
+        min-width: 0
+    }
+
+    .blog-show-section-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 18px;
+        font-size: clamp(20px, 2vw, 24px);
+        font-weight: 700;
+    }
+
+    .blog-show-section-title::before {
+        content: "";
+        width: 4px;
+        height: 22px;
+        border-radius: 3px;
+        background: var(--blog-show-teal)
+    }
+
+    /* 主卡 */
+    .blog-show-featured {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        background: var(--blog-show-card);
+        border: 1px solid var(--blog-show-line);
+        border-radius: var(--blog-show-radius);
+        box-shadow: var(--blog-show-shadow);
+        overflow: clip;
+        transition: transform .25s, box-shadow .25s;
+    }
+
+    .blog-show-featured:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 28px rgba(15, 23, 42, .08)
+    }
+
+    .blog-show-featured-media {
+        position: relative;
+        aspect-ratio: 3/2;
+        background: #eef2f7;
+        overflow: clip
+    }
+
+    .blog-show-featured-media img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: transform .5s
+    }
+
+    .blog-show-featured:hover .blog-show-featured-media img {
+        transform: scale(1.05)
+    }
+
+    .blog-show-featured-body {
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        min-width: 0
+    }
+
+    .blog-show-meta {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+        color: var(--blog-show-muted);
+        font-size: 14px;
+        margin-bottom: 6px
+    }
+
+    .blog-show-pill {
+        display: inline-block;
+        padding: 3px 10px;
+        border-radius: 999px;
+        background: #e0f2f1;
+        color: var(--blog-show-teal);
+        font-weight: 700;
+        font-size: 12px
+    }
+
+    .blog-show-featured-title {
+        margin: 6px 0 8px;
+        font-size: clamp(18px, 2.2vw, 22px);
+        line-height: 1.45;
+        font-weight: 700
+    }
+
+    .blog-show-featured-tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 8px 0 10px
+    }
+
+    .blog-show-featured-desc {
+        color: var(--blog-show-muted);
+        line-height: 1.7;
+        margin: 0 0 12px
+    }
+
+    .blog-show-btn {
+        align-self: flex-start;
+        background: var(--blog-show-teal);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 999px;
+        padding: 10px 18px;
+        font-weight: 700;
+        font-size: 14px;
+        transition: .2s
+    }
+
+    .blog-show-btn:hover {
+        background: var(--blog-show-teal-d)
+    }
+
+    .blog-show-btn:active {
+        transform: translateY(1px)
+    }
+
+    /* 小列表（固定行高 + 省略） */
+    .blog-show-list {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        background: var(--blog-show-card);
+        border: 1px solid var(--blog-show-line);
+        border-radius: var(--blog-show-radius-sm);
+        padding: 14px 16px;
+        margin: 10px 0;
+        transition: border-color .2s, box-shadow .2s;
+        min-height: 78px;
+    }
+
+    .blog-show-list:hover {
+        border-color: var(--blog-show-teal);
+        box-shadow: 0 8px 16px rgba(20, 184, 166, .08)
+    }
+
+    .blog-show-date {
+        width: 60px;
+        flex: 0 0 60px;
+        text-align: center;
+        border-right: 1px dashed var(--blog-show-line);
+        padding-right: 10px;
+        color: var(--blog-show-teal);
+        font-weight: 700
+    }
+
+    .blog-show-date .blog-show-d {
+        font-size: 20px;
+        line-height: 1
+    }
+
+    .blog-show-date .blog-show-m {
+        font-size: 12px;
+        color: var(--blog-show-muted)
+    }
+
+    .blog-show-list-main {
+        flex: 1;
+        min-width: 0
+    }
+
+    .blog-show-list-title {
+        margin: 0 0 4px;
+        font-weight: 700;
+        font-size: 16px
+    }
+
+    .blog-show-list-sub {
+        margin: 0;
+        color: var(--blog-show-muted);
+        font-size: 14px
+    }
+
+    .blog-show-list-btn {
+        margin-left: auto;
+        white-space: nowrap;
+        text-decoration: none;
+        background: #e0f2f1;
+        color: var(--blog-show-teal);
+        padding: 8px 12px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 13px
+    }
+
+    .blog-show-list-btn:hover {
+        background: var(--blog-show-teal);
+        color: #fff
+    }
+
+    /* 卡片（等高 + 文字限制 + 固定比例圖） */
+    .blog-show-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 18px
+    }
+
+    .blog-show-card {
+        grid-column: span 4;
+        background: var(--blog-show-card);
+        border: 1px solid var(--blog-show-line);
+        border-radius: var(--blog-show-radius-sm);
+        box-shadow: var(--blog-show-shadow);
+        overflow: clip;
+        display: flex;
+        flex-direction: column;
+        transition: transform .2s, box-shadow .2s;
+        height: 100%;
+    }
+
+    .blog-show-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 26px rgba(15, 23, 42, .09)
+    }
+
+    .blog-show-card-media {
+        aspect-ratio: 4/3;
+        background: #eef2f7;
+        position: relative;
+        overflow: clip
+    }
+
+    .blog-show-card-media img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: transform .5s
+    }
+
+    .blog-show-card:hover .blog-show-card-media img {
+        transform: scale(1.04)
+    }
+
+    .blog-show-card-body {
+        padding: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        min-height: 170px
+    }
+
+    .blog-show-type {
+        color: var(--blog-show-teal);
+        font-size: 13px;
+        font-weight: 700
+    }
+
+    .blog-show-card h4 {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.5
+    }
+
+    .blog-show-card p {
+        margin: 0 0 6px;
+        color: var(--blog-show-muted);
+        font-size: 14px;
+        line-height: 1.6
+    }
+
+    .blog-show-more {
+        align-self: flex-end;
+        text-decoration: none;
+        color: var(--blog-show-teal);
+        font-weight: 700;
+        font-size: 14px;
+        padding: 4px 2px;
+        border-radius: 6px
+    }
+
+    .blog-show-more:hover {
+        color: var(--blog-show-teal-d);
+        background: rgba(20, 184, 166, .08)
+    }
+
+    /* 側欄（桌機漂浮，行動不漂浮） */
+    .blog-show-aside-wrap {
+        position: sticky;
+        top: 24px;
+        align-self: start
+    }
+
+    .blog-show-aside-box {
+        background: var(--blog-show-card);
+        border: 1px solid var(--blog-show-line);
+        border-radius: var(--blog-show-radius-sm);
+        box-shadow: var(--blog-show-shadow);
+        padding: 18px;
+        margin-bottom: 18px
+    }
+
+    .blog-show-aside-title {
+        margin: 0 0 12px;
+        font-weight: 700;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        gap: 8px
+    }
+
+    .blog-show-aside-links a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 12px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: var(--blog-show-ink);
+        font-weight: 700;
+        font-size: 14px
+    }
+
+    .blog-show-aside-links a:hover {
+        background: #e0f2f1;
+        color: var(--blog-show-teal)
+    }
+
+    .blog-show-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px
+    }
+
+    .blog-show-tags a {
+        text-decoration: none;
+        background: #eef2f7;
+        color: #374151;
+        font-weight: 700;
+        font-size: 13px;
+        padding: 6px 10px;
+        border-radius: 999px
+    }
+
+    .blog-show-tags a:hover {
+        background: var(--blog-show-teal);
+        color: #fff
+    }
+
+    .blog-show-tag {
+        color: #6b7280;
+        font-size: 8px;
+    }
+
+    .blog-show-info {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* RWD */
+    @media (max-width:1200px) {
+        .blog-show-container {
+            grid-template-columns: minmax(0, 1fr) 300px
+        }
+    }
+
+    @media (max-width:900px) {
+        .blog-show-container {
+            grid-template-columns: 1fr
+        }
+
+        .blog-show-aside-wrap {
+            position: static
+        }
+
+        /* 手機：側欄到最下方（取消漂浮） */
+        .blog-show-featured {
+            grid-template-columns: 1fr
+        }
+
+        .blog-show-featured-media {
+            aspect-ratio: 16/9
+        }
+
+        .blog-show-card {
+            grid-column: span 12
+        }
+
+        .blog-show-card-media {
+            aspect-ratio: 7 / 4;
+        }
+    }
+
+    @media (min-width:901px) and (max-width:1080px) {
+        .blog-show-card {
+            grid-column: span 6
+        }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+        * {
+            transition: none !important;
+            animation: none !important
+        }
+    }
+</style>
