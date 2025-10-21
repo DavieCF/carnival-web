@@ -50,6 +50,7 @@
     <link rel="stylesheet" href="./css/section-d.css">
     <link rel="stylesheet" href="./css/section-e.css">
     <link rel="stylesheet" href="./css/moble.css">
+    <link rel="stylesheet" href="./css/more.css">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -425,9 +426,7 @@
                     </div>
                 </div>
             </div>
-            <div class="sc-btn">
-                More coming soon
-            </div>
+            <button class="more-btn" id="more-open-btn-pc">More ▶</button>
         </section>
 
         <section class="default-section" style="height: 450px;" id="sec-d">
@@ -858,7 +857,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mo-sc-btn">More coming soon</div>
+            <button class="more-btn" id="more-open-btn-mo" style="display: block; margin: 30px auto;">More ▶</button>
         </section>
 
         <section id="mo-sec-d">
@@ -1220,6 +1219,156 @@
             <p style="font-size: 12px; color:gray; font-weight:500; padding-top:10px; text-align: right;">依照中文筆畫順序排序</p>
         </div> -->
     </footer>
+
+    <!-- Popup -->
+    <div class="more-popup-overlay" id="more-popup-overlay">
+        <div class="more-popup">
+            <button class="more-close-btn" id="more-close-btn">&times;</button>
+            <h2>🎁 獎品清單</h2>
+            <div class="more-card-container" id="more-card-container"></div>
+        </div>
+    </div>
+
+    <script type="module">
+        // 載入獎品清單
+        const morePrizes = [
+            {
+                "img": "./img/prize/honey_cake.jpg",
+                "vendor": "",
+                "name": "蜂蜜蛋糕",
+                "value": "簽到禮",
+                "ori_name": "蜂蜜蛋糕.jpg"
+            },
+            {
+                "img": "./img/prize/lemon_cake.jpg",
+                "vendor": "",
+                "name": "檸檬蛋糕",
+                "value": "簽到禮",
+                "ori_name": "檸檬蛋糕.jpg"
+            },
+            {
+                "img": "./img/prize/haoyisi.jpg",
+                "vendor": "InSeed 益喜氏",
+                "name": "好益思",
+                "value": "價值$ 1280 (市價)",
+                "ori_name": "好益思.jpg"
+            },
+            {
+                "img": "./img/prize/haijung_15pack.png",
+                "vendor": "中華海洋",
+                "name": "褐抑定15人+禮優元1條",
+                "value": "價值$ 3240 (市價)",
+                "ori_name": "褐抑定15人+藻復元1條.png"
+            },
+            {
+                "img": "./img/prize/haijung_60pack.png",
+                "vendor": "中華海洋",
+                "name": "褐抑定60人+禮優元1條",
+                "value": "價值$ 10270 (市價)",
+                "ori_name": "褐抑定60入+藻復元1條.png"
+            },
+            {
+                "img": "./img/prize/fish_essence_5.png",
+                "vendor": "中華海洋",
+                "name": "鮮魚精禮盒5入裝",
+                "value": "價值$ 908 (市價)",
+                "ori_name": "鮮魚精禮盒5入裝.png"
+            },
+            {
+                "img": "./img/prize/vitaminb_duotab.png",
+                "vendor": "台塩生醫",
+                "name": "B群保健雙層錠",
+                "value": "價值$ 488 (市價)",
+                "ori_name": "B群緩釋雙層碇.png"
+            },
+            {
+                "img": "./img/prize/pure_probiotic.png",
+                "vendor": "台塩生醫",
+                "name": "純粹益生菌",
+                "value": "價值$ 880 (市價)",
+                "ori_name": "純粹益生菌.png"
+            },
+            {
+                "img": "./img/prize/gold_elikang_10.png",
+                "vendor": "生機生技",
+                "name": "金牌易利抗(10粒裝)",
+                "value": "價值$ 680 (市價)",
+                "ori_name": "金牌易利抗(10粒裝).png"
+            },
+            {
+                "img": "./img/prize/plant_extract_12.png",
+                "vendor": "鷄極本味",
+                "name": "常溫植物滴G精(12入)",
+                "value": "價值$ 2080 (市價)",
+                "ori_name": "植粹系列-常溫植物滴G精(12入_盒)1.png"
+            },
+            {
+                "img": "./img/prize/gac_chicken_5.jpg",
+                "vendor": "鷄極本味",
+                "name": "木鱉果濃萃滴雞精(5入)",
+                "value": "價值$ 2000 (市價)",
+                "ori_name": "常溫系列-木鱉果濃萃滴雞精(5入_盒).jpg"
+            },
+            {
+                "img": "./img/prize/drm_cup.jpg",
+                "vendor": "未知廠商",
+                "name": "抖擻味系列飲具",
+                "value": "價值$ 60 (市價)",
+                "ori_name": "抖擻味系列玩具.jpg"
+            },
+            {
+                "img": "./img/prize/aroma_gift02.jpg",
+                "vendor": "未知廠商",
+                "name": "香氛禮盒",
+                "value": "價值$ 1880 (市價)",
+                "ori_name": "香氛禮盒02.jpg"
+            }
+        ]
+
+        // 抓兩個按鈕
+        const moreOpenBtns = document.querySelectorAll('#more-open-btn-pc, #more-open-btn-mo');
+        const moreOverlay = document.getElementById('more-popup-overlay');
+        const moreCloseBtn = document.getElementById('more-close-btn');
+        const moreCardContainer = document.getElementById('more-card-container');
+
+        // 渲染卡片
+        function moreRenderCards() {
+            moreCardContainer.innerHTML = '';
+            morePrizes.forEach(item => {
+                const card = document.createElement('div');
+                card.classList.add('more-card');
+                card.innerHTML = `
+                <img src="${item.img}" alt="${item.name}">
+                <div class="more-info">
+                <h4>${item.name}</h4>
+                <p>${item.vendor}</p>
+                <p class="more-value">${item.value}</p>
+                </div>
+                `;
+                moreCardContainer.appendChild(card);
+            });
+        }
+
+        // 綁定兩個按鈕的開啟事件
+        moreOpenBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                moreRenderCards();
+                moreOverlay.style.display = 'flex';
+            });
+        });
+
+        // 關閉 popup
+        moreCloseBtn.addEventListener('click', () => {
+            moreOverlay.style.display = 'none';
+        });
+
+        // 點背景關閉
+        moreOverlay.addEventListener('click', (e) => {
+            if (e.target === moreOverlay) {
+                moreOverlay.style.display = 'none';
+            }
+        });
+    </script>
 
 </body>
 
