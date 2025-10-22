@@ -439,7 +439,7 @@ footer {
     grid-template-columns: repeat(3, 1fr);
     /* 一行最多 3 個 */
     gap: 30px;
-    row-gap: 10px;
+    row-gap: 0px;
     justify-items: center;
 }
 
