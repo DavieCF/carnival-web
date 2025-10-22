@@ -141,6 +141,7 @@
     color: #2b7575;
     text-align: center;
     margin-top: 10px;
+    font-size: 2rem;
 }
 
 /* =============================
@@ -159,4 +160,9 @@
         margin: 20px;
         font-size: 1rem;
     }
+}
+
+
+.more-card:nth-of-type(-n+2) {
+    border: 2px solid #2b7575;
 }
