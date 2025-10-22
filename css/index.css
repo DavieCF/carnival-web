@@ -443,6 +443,7 @@ footer {
     justify-items: center;
 }
 
+.footertop,
 .footer-2cards {
     display: flex;
     grid-template-columns: repeat(3, 1fr);
