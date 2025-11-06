@@ -484,3 +484,53 @@ footer {
     line-height: 0.8;
     padding-bottom: 5px;
 }
+
+.more-btn-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.more-btn-content {
+    font-size: 15px;
+}
+
+.more-btn-content {
+    font-size: 15px;
+}
+
+/* 讓容器裡的 <a> 有淡藍綠色 + 動畫 */
+.more-btn-content a {
+    position: relative;
+    color: #669191;
+    text-decoration: none;
+    transition: color 0.25s ease, transform 0.15s ease;
+}
+
+/* 滑過時亮一點 */
+.more-btn-content a:hover {
+    color: #00D6C8;
+    transform: translateY(-1px);
+}
+
+/* 點擊時微縮 + 加深 */
+.more-btn-content a:active {
+    color: #00B5A9;
+    transform: scale(0.97);
+}
+
+/* 加上底線滑動動畫 */
+.more-btn-content a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 1.5px;
+    background-color: #00D6C8;
+    transition: width 0.3s ease;
+}
+
+.more-btn-content a:hover::after {
+    width: 100%;
+}
