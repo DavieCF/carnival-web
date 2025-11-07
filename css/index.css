@@ -534,3 +534,13 @@ footer {
 .more-btn-content a:hover::after {
     width: 100%;
 }
+
+.flex-center-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-sc-content {
+    padding-left: 30px;
+}

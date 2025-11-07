@@ -22,10 +22,6 @@
     padding: 20px 0;
 }
 
-.sc-content * {
-    padding: 10px;
-}
-
 
 
 .sc-circle-img {
@@ -71,7 +67,7 @@
 .sc-r-cards {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
 }
 
 .sc-card {
@@ -165,4 +161,9 @@
     object-fit: contain;
     object-position: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.scr-txt1 {
+    text-align: center;
+    padding: 10px;
 }
