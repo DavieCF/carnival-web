@@ -18,16 +18,16 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    background: url("../img/MKT-CF-抗癌嘉年華活動頁面_捧愛心的人-250910-3-010-03-03.png") no-repeat 37% center/auto 70%;
+    background: url("../img/MKT-CF-抗癌嘉年華活動頁面_捧愛心的人-250910-3-010-03-03.png") no-repeat 35% center/auto 60%;
     padding: 20px 0;
 }
 
 
 
 .sc-circle-img {
-    width: 270px;
+    width: 200px;
     /* 調整大小 */
-    height: 270px;
+    height: 200px;
     /* 寬高一樣才能變成完美圓形 */
     border-radius: 50%;
     /* 圓形 */
