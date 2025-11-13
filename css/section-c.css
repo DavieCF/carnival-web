@@ -167,3 +167,53 @@
     text-align: center;
     padding: 10px;
 }
+
+
+.c-prize-card {
+    background: #ffffff;
+    /* 白底 */
+    color: #000000;
+    /* 黑字 */
+    border: 1px solid #dddddd;
+    /* 淺灰細框 */
+    border-radius: 6px;
+    padding: 12px;
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 13px;
+    /* 字體變小 */
+    line-height: 1.4;
+
+    /* 不限制寬高，根據內容自動調整 */
+    width: auto;
+    display: inline-block;
+    /* 不擠壓，也不撐滿整行 */
+    max-width: 100%;
+    /* 防止超出容器 */
+}
+
+.c-prize-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.c-prize-emoji {
+    font-size: 16px;
+    /* emoji 不要太大 */
+    margin-right: 4px;
+}
+
+.c-prize-title {
+    font-weight: bold;
+    font-size: 13px;
+    /* 小字 */
+}
+
+.c-prize-list {
+    padding-left: 18px;
+    margin-top: 4px;
+}
+
+.c-prize-list li {
+    margin-bottom: 4px;
+}
