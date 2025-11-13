@@ -546,3 +546,12 @@ footer {
 .new-sc-content {
     padding-left: 30px;
 }
+
+.cn-text {
+    word-break: keep-all;
+    text-align: justify;
+    text-justify: inter-character;
+    /*
+    line-height: 1.6;
+    */
+}
