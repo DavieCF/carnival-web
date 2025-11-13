@@ -399,7 +399,8 @@ main {
 }
 
 .day-schedule table {
-    width: 960px;
+    max-width: 1080px;
+    width: 100%;
     border-collapse: collapse;
     text-align: center;
 }
