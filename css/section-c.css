@@ -206,13 +206,14 @@
 
 .c-prize-title {
     font-weight: bold;
-    font-size: 13px;
+    font-size: 18px;
     /* 小字 */
 }
 
 .c-prize-list {
     padding-left: 18px;
     margin-top: 4px;
+    font-size: 15px;
 }
 
 .c-prize-list li {
