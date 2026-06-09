@@ -49,6 +49,7 @@
     <link rel="stylesheet" href="./css/section-c.css">
     <link rel="stylesheet" href="./css/section-d.css">
     <link rel="stylesheet" href="./css/section-e.css">
+    <link rel="stylesheet" href="./css/section-g.css">
     <link rel="stylesheet" href="./css/moble.css">
     <link rel="stylesheet" href="./css/more.css">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -149,6 +150,8 @@
                         href="#sec-e">專題講座</a>
                     <a class="text-sm font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
                         href="#sec-f">活動議程</a>
+                    <a class="text-sm font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
+                        href="#sec-g">活動精華</a>
                 </nav>
                 <a href="https://cancerfree.io" target="_blank">
                     <div class="flex items-center gap-2">
@@ -170,6 +173,8 @@
                 href="#sec-e">專題講座</a>
             <a class="text-base font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
                 href="#sec-f">活動議程</a>
+            <a class="text-base font-medium text-gray-600 hover:text-[var(--primary-color)] transition-colors"
+                href="#sec-g">活動精華</a>
         </nav>
     </div>
     <!-- <main class="pt-20">
@@ -202,24 +207,7 @@
                             style="font-size: 20px;">(日)</span></p>
                     <p class="color-cf-black" style="font-size: 36px;">松菸文創園區<br>(四號倉庫)</p>
                 </div>
-                <div class="tb-r" id="tbR">
-                    <a href="https://accu.ps/Mg0r1X" target="_blank">
-                        <button class="round-btn floating-btn">
-                            <img src="./img/v3/balloon.gif" alt="logo">
-                            <span>免費報名</span>
-                        </button>
-                    </a>
-                </div>
-
-                <!-- 浮動按鈕（預設隱藏，滾動時顯示） -->
-                <a href="https://accu.ps/Mg0r1X" target="_blank">
-                    <button class="round-btn fixed-btn" id="fixedBtn">
-                        <img src="./img/v3/balloon.gif" alt="logo">
-                        <span>免費報名</span>
-                    </button>
-                </a>
-
-                <script src="./js/banner.js"></script>
+                <div class="tb-r" id="tbR"></div>
             </div>
         </section>
 
@@ -304,6 +292,219 @@
                 </div>
             </div>
         </section>
+
+        <!-- ===== 活動精華 ===== -->
+        <section class="sg-section cn-text" id="sec-g">
+
+            <!-- 星星背景 -->
+            <div class="sg-stars-bg" aria-hidden="true">
+                <span class="sg-sp sp1">✦</span>
+                <span class="sg-sp sp2">✧</span>
+                <span class="sg-sp sp3">✦</span>
+                <span class="sg-sp sp4">✧</span>
+                <span class="sg-sp sp5">✦</span>
+                <span class="sg-sp sp6">✧</span>
+                <span class="sg-sp sp7">✦</span>
+                <span class="sg-sp sp8">✧</span>
+                <span class="sg-sp sp9">✦</span>
+                <span class="sg-sp sp10">✧</span>
+                <span class="sg-sp sp11">✦</span>
+                <span class="sg-sp sp12">✧</span>
+            </div>
+
+            <div class="sg-header">
+                <div class="sg-header-center">
+                    <div class="sg-title-row">
+                        <svg class="sg-deco-balloon" viewBox="0 0 56 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <ellipse cx="28" cy="26" rx="20" ry="24" fill="#72C1BA" opacity="0.82"/>
+                            <polygon points="24,48 32,48 28,55" fill="#72C1BA" opacity="0.82"/>
+                            <path d="M28 55 Q23 63 28 72" stroke="#5aA8A0" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                            <ellipse cx="20" cy="17" rx="5" ry="7" fill="white" opacity="0.28" transform="rotate(-25,20,17)"/>
+                        </svg>
+                        <h2 class="sg-title">活動精華 <span class="sg-star">✦</span></h2>
+                    </div>
+                    <p class="sg-subtitle">回顧每一個精彩時刻，感受嘉年華的溫度</p>
+                </div>
+            </div>
+
+            <div class="sg-carousel-wrap">
+                <button class="sg-arrow sg-prev" id="sg-prev">&#8249;</button>
+
+                <div class="sg-carousel" id="sg-carousel">
+                    <!-- 💡 自訂縮圖：把 img src 換成你的圖片路徑 -->
+                    <div class="sg-slide active">
+                        <div class="sg-thumb" data-vid="vqP16kpqUfQ" onclick="sgPlay(this)">
+                            <img src="https://img.youtube.com/vi/vqP16kpqUfQ/maxresdefault.jpg"
+                                 onerror="this.src='https://img.youtube.com/vi/vqP16kpqUfQ/hqdefault.jpg'" alt="從藥物到生活，逆轉希望的治療選擇">
+                            <div class="sg-play-btn"></div>
+                        </div>
+                        <div class="sg-info">
+                            <p class="sg-tag">精選講座</p>
+                            <p class="sg-video-title">從藥物到生活，逆轉希望的治療選擇</p>
+                            <p class="sg-video-desc">呂隆昇醫師</p>
+                        </div>
+                    </div>
+                    <div class="sg-slide">
+                        <div class="sg-thumb" data-vid="hFmXAT64nbk" onclick="sgPlay(this)">
+                            <img src="https://img.youtube.com/vi/hFmXAT64nbk/maxresdefault.jpg"
+                                 onerror="this.src='https://img.youtube.com/vi/hFmXAT64nbk/hqdefault.jpg'" alt="五大癌篩新挑戰：當早期異常遇見精準醫療">
+                            <div class="sg-play-btn"></div>
+                        </div>
+                        <div class="sg-info">
+                            <p class="sg-tag">精選講座</p>
+                            <p class="sg-video-title">五大癌篩新挑戰：當早期異常遇見精準醫療</p>
+                            <p class="sg-video-desc">陳冀寬醫師</p>
+                        </div>
+                    </div>
+                    <div class="sg-slide">
+                        <div class="sg-thumb" data-vid="g9KhnETUEQE" onclick="sgPlay(this)">
+                            <img src="https://img.youtube.com/vi/g9KhnETUEQE/maxresdefault.jpg"
+                                 onerror="this.src='https://img.youtube.com/vi/g9KhnETUEQE/hqdefault.jpg'" alt="從傳統篩檢到多癌種早篩：科技引領的新時代">
+                            <div class="sg-play-btn"></div>
+                        </div>
+                        <div class="sg-info">
+                            <p class="sg-tag">精選講座</p>
+                            <p class="sg-video-title">從傳統篩檢到多癌種早篩：科技引領的新時代</p>
+                            <p class="sg-video-desc">鄧仲仁醫師</p>
+                        </div>
+                    </div>
+                    <div class="sg-slide">
+                        <div class="sg-thumb" data-vid="7Jrm9ITMVE8" onclick="sgPlay(this)">
+                            <img src="https://img.youtube.com/vi/7Jrm9ITMVE8/maxresdefault.jpg"
+                                 onerror="this.src='https://img.youtube.com/vi/7Jrm9ITMVE8/hqdefault.jpg'" alt="營養迷思大破解：你以為健康，其實可能做錯了">
+                            <div class="sg-play-btn"></div>
+                        </div>
+                        <div class="sg-info">
+                            <p class="sg-tag">精選講座</p>
+                            <p class="sg-video-title">營養迷思大破解：你以為健康，其實可能做錯了</p>
+                            <p class="sg-video-desc">黃翠華 知識長</p>
+                        </div>
+                    </div>
+                    <div class="sg-slide">
+                        <div class="sg-thumb" data-vid="QRmeckHUxRA" onclick="sgPlay(this)">
+                            <img src="https://img.youtube.com/vi/QRmeckHUxRA/maxresdefault.jpg"
+                                 onerror="this.src='https://img.youtube.com/vi/QRmeckHUxRA/hqdefault.jpg'" alt="焦慮是因為太無聊？讓大腦重新忙起來">
+                            <div class="sg-play-btn"></div>
+                        </div>
+                        <div class="sg-info">
+                            <p class="sg-tag">精選講座</p>
+                            <p class="sg-video-title">焦慮是因為太無聊？讓大腦重新忙起來</p>
+                            <p class="sg-video-desc">Lynn 心理諮商師</p>
+                        </div>
+                    </div>
+                    <div class="sg-slide">
+                        <div class="sg-thumb" data-vid="XdXFQ3LHrr8" onclick="sgPlay(this)">
+                            <img src="https://img.youtube.com/vi/XdXFQ3LHrr8/maxresdefault.jpg"
+                                 onerror="this.src='https://img.youtube.com/vi/XdXFQ3LHrr8/hqdefault.jpg'" alt="打怪升等攻略：我的癌症療程日記">
+                            <div class="sg-play-btn"></div>
+                        </div>
+                        <div class="sg-info">
+                            <p class="sg-tag">名人分享</p>
+                            <p class="sg-video-title">打怪升等攻略：我的癌症療程日記</p>
+                            <p class="sg-video-desc">林茉晶 卵巢癌一期康復者</p>
+                        </div>
+                    </div>
+                    <div class="sg-slide">
+                        <div class="sg-thumb" data-vid="D1pvMZokPsQ" onclick="sgPlay(this)">
+                            <img src="https://img.youtube.com/vi/D1pvMZokPsQ/maxresdefault.jpg"
+                                 onerror="this.src='https://img.youtube.com/vi/D1pvMZokPsQ/hqdefault.jpg'" alt="安寧不是一種放棄，而是一種醫療">
+                            <div class="sg-play-btn"></div>
+                        </div>
+                        <div class="sg-info">
+                            <p class="sg-tag">精選講座</p>
+                            <p class="sg-video-title">安寧不是一種放棄，而是一種醫療</p>
+                            <p class="sg-video-desc">趙祖怡醫師</p>
+                        </div>
+                    </div>
+                    <div class="sg-slide">
+                        <div class="sg-thumb" data-vid="Pat1PAT7_u8" onclick="sgPlay(this)">
+                            <img src="https://img.youtube.com/vi/Pat1PAT7_u8/maxresdefault.jpg"
+                                 onerror="this.src='https://img.youtube.com/vi/Pat1PAT7_u8/hqdefault.jpg'" alt="璀璨蛻變心靈重生">
+                            <div class="sg-play-btn"></div>
+                        </div>
+                        <div class="sg-info">
+                            <p class="sg-tag">名人分享</p>
+                            <p class="sg-video-title">璀璨蛻變心靈重生</p>
+                            <p class="sg-video-desc">唐玲 胃癌四期康復者</p>
+                        </div>
+                    </div>
+                    <div class="sg-slide">
+                        <div class="sg-thumb" data-vid="pHpe-jmde94" onclick="sgPlay(this)">
+                            <img src="https://img.youtube.com/vi/pHpe-jmde94/maxresdefault.jpg"
+                                 onerror="this.src='https://img.youtube.com/vi/pHpe-jmde94/hqdefault.jpg'" alt="聯合國給我們的健康建議是什麼？">
+                            <div class="sg-play-btn"></div>
+                        </div>
+                        <div class="sg-info">
+                            <p class="sg-tag">精選講座</p>
+                            <p class="sg-video-title">聯合國給我們的健康建議是什麼？</p>
+                            <p class="sg-video-desc">姜冠宇醫師</p>
+                        </div>
+                    </div>
+                </div><!-- /.sg-carousel -->
+
+                <button class="sg-arrow sg-next" id="sg-next">&#8250;</button>
+            </div><!-- /.sg-carousel-wrap -->
+
+            <!-- 縮圖預覽列（取代圓點） -->
+            <div class="sg-thumbstrip" id="sg-thumbstrip">
+                <div class="sg-strip-item active" data-index="0"><img src="./img/v3/card5-呂隆昇去背圖檔-250925-3-020.png" alt="呂隆昇"></div>
+                <div class="sg-strip-item" data-index="1"><img src="./img/v3/card1-陳冀寬講者圖框-250930-3-010.png" alt="陳冀寬"></div>
+                <div class="sg-strip-item" data-index="2"><img src="./img/v3/card8-MKT-CF-鄧仲仁去背圖檔-251110-3-010.png" alt="鄧仲仁"></div>
+                <div class="sg-strip-item" data-index="3"><img src="./img/v3/card13-MKT-CF-黃翠華去背圖檔-251022-3-010.png" alt="黃翠華"></div>
+                <div class="sg-strip-item" data-index="4"><img src="./img/v3/card12-MKT-CF-Lynn去背圖檔-251128-3-010.png" alt="Lynn"></div>
+                <div class="sg-strip-item" data-index="5"><img src="./img/v3/card4-林茉晶講者圖框-250925-3-020.png" alt="林茉晶"></div>
+                <div class="sg-strip-item" data-index="6"><img src="./img/v3/card7-MKT-CF-趙祖怡講者圖框-251002-3-010.png" alt="趙祖怡"></div>
+                <div class="sg-strip-item" data-index="7"><img src="./img/v3/card6-唐玲講者圖框-251001-3-010.png" alt="唐玲"></div>
+                <div class="sg-strip-item" data-index="8"><img src="./img/v3/card2-姜冠宇去背圖檔-250925-3-020.png" alt="姜冠宇"></div>
+            </div>
+
+            <div class="sg-footer-mint"></div>
+
+            <script>
+            (function () {
+                function sgPlay(thumb) {
+                    var vid = thumb.getAttribute('data-vid');
+                    thumb.innerHTML = '<iframe src="https://www.youtube.com/embed/' + vid + '?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                    thumb.onclick = null;
+                    thumb.style.cursor = 'default';
+                }
+                window.sgPlay = sgPlay;
+
+                var slides   = Array.from(document.querySelectorAll('#sg-carousel .sg-slide'));
+                var items    = Array.from(document.querySelectorAll('#sg-thumbstrip .sg-strip-item'));
+                var current  = 0;
+                var timer;
+
+                function goTo(n) {
+                    slides[current].classList.remove('active');
+                    items[current].classList.remove('active');
+                    current = (n + slides.length) % slides.length;
+                    slides[current].classList.add('active');
+                    items[current].classList.add('active');
+                    resetTimer();
+                }
+
+                function resetTimer() {
+                    clearInterval(timer);
+                    timer = setInterval(function () { goTo(current + 1); }, 3000);
+                }
+
+                items.forEach(function (el) {
+                    el.addEventListener('click', function () {
+                        goTo(parseInt(el.getAttribute('data-index')));
+                    });
+                });
+
+                document.getElementById('sg-prev').addEventListener('click', function () { goTo(current - 1); });
+                document.getElementById('sg-next').addEventListener('click', function () { goTo(current + 1); });
+                document.getElementById('sg-carousel').addEventListener('mouseenter', function () { clearInterval(timer); });
+                document.getElementById('sg-carousel').addEventListener('mouseleave', resetTimer);
+
+                resetTimer();
+            })();
+            </script>
+        </section>
+        <!-- ===== /活動精華 ===== -->
 
 
         <section style="height: 850px; background-color:#07070700" id="sec-c">
@@ -529,7 +730,7 @@
                                 <img src="./img/v3/card8-MKT-CF-鄧仲仁去背圖檔-251110-3-010.png" />
                                 <img src="./img/v3/card9-MKT-CF-司徒惠康去背圖檔-251110-3-010.png" />
                                 <img src="./img/v3/card10-MKT-CF-林楚茵去背圖檔-251113-3-010.png" />
-                                <img src="./img/v3/card11-MKT-CF-黃翠華去背圖檔-251022-3-010.png" />
+                                <img src="./img/v3/card11-MKT-CF-沈靜芬去背圖檔-251128-3-010.png" />
                                 <img src="./img/v3/card12-MKT-CF-Lynn去背圖檔-251128-3-010.png" />
                                 <img src="./img/v3/card13-MKT-CF-黃翠華去背圖檔-251022-3-010.png" />
                             </div>
@@ -768,6 +969,7 @@
 
         </section>
 
+
     </main>
 
     <main class="mo-main">
@@ -788,24 +990,7 @@
                 <script src="./js/banner.js"></script> -->
             </div>
         </section>
-        <a href="https://accu.ps/Mg0r1X" target="_blank">
-            <div class="mo-tb-r" id="mo-tbR">
-                <button class="round-btn floating-btn">
-                    <img src="./img/v3/balloon.gif" alt="logo">
-                    <span>免費報名</span>
-                </button>
-                <script>
-                    window.addEventListener("scroll", function () {
-                        const btn = document.getElementById("mo-tbR");
-                        let y = window.scrollY;
-                        // top 值在 400px 與 40px 間漸變
-                        let newTop = Math.max(80, 400 - y);
-                        btn.style.top = newTop + "px";
-                    });
-
-                </script>
-            </div>
-        </a>
+        
         <section class="mo-default-section" style="background-color:#07070700" id="mo-sec-b">
             <div class="mo-default-content">
                 <div class="mo-sb-1">
@@ -885,6 +1070,164 @@
                 </div>
             </div>
         </section>
+
+
+
+        <!-- ===== 手機版 活動精華 ===== -->
+        <section class="sg-mo-section cn-text" id="mo-sec-g">
+            <div class="sg-mo-header">
+                <h2 class="sg-mo-title">活動精華 <span class="sg-star">✦</span></h2>
+                <p class="sg-mo-subtitle">回顧每一個精彩時刻</p>
+            </div>
+
+            <div class="sg-mo-carousel-wrap">
+                <div class="sg-mo-carousel" id="sg-mo-carousel">
+                    <div class="sg-mo-slide active">
+                        <div class="sg-thumb" data-vid="vqP16kpqUfQ" onclick="sgPlay(this)">
+                            <img src="./img/v3/card5-呂隆昇去背圖檔-250925-3-020.png" alt="呂隆昇醫師">
+                            <div class="sg-play-btn"></div>
+                        </div>
+                        <div class="sg-mo-info">
+                            <p class="sg-tag">精選講座</p>
+                            <p class="sg-video-title">從藥物到生活，逆轉希望的治療選擇</p>
+                            <p class="sg-video-desc">呂隆昇醫師</p>
+                        </div>
+                    </div>
+                    <div class="sg-mo-slide">
+                        <div class="sg-thumb" data-vid="hFmXAT64nbk" onclick="sgPlay(this)">
+                            <img src="./img/v3/card1-陳冀寬講者圖框-250930-3-010.png" alt="陳冀寬醫師">
+                            <div class="sg-play-btn"></div>
+                        </div>
+                        <div class="sg-mo-info">
+                            <p class="sg-tag">精選講座</p>
+                            <p class="sg-video-title">五大癌篩新挑戰：當早期異常遇見精準醫療</p>
+                            <p class="sg-video-desc">陳冀寬醫師</p>
+                        </div>
+                    </div>
+                    <div class="sg-mo-slide">
+                        <div class="sg-thumb" data-vid="g9KhnETUEQE" onclick="sgPlay(this)">
+                            <img src="./img/v3/card8-MKT-CF-鄧仲仁去背圖檔-251110-3-010.png" alt="鄧仲仁醫師">
+                            <div class="sg-play-btn"></div>
+                        </div>
+                        <div class="sg-mo-info">
+                            <p class="sg-tag">精選講座</p>
+                            <p class="sg-video-title">從傳統篩檢到多癌種早篩：科技引領的新時代</p>
+                            <p class="sg-video-desc">鄧仲仁醫師</p>
+                        </div>
+                    </div>
+                    <div class="sg-mo-slide">
+                        <div class="sg-thumb" data-vid="7Jrm9ITMVE8" onclick="sgPlay(this)">
+                            <img src="./img/v3/card13-MKT-CF-黃翠華去背圖檔-251022-3-010.png" alt="黃翠華知識長">
+                            <div class="sg-play-btn"></div>
+                        </div>
+                        <div class="sg-mo-info">
+                            <p class="sg-tag">精選講座</p>
+                            <p class="sg-video-title">營養迷思大破解：你以為健康，其實可能做錯了</p>
+                            <p class="sg-video-desc">黃翠華 知識長</p>
+                        </div>
+                    </div>
+                    <div class="sg-mo-slide">
+                        <div class="sg-thumb" data-vid="QRmeckHUxRA" onclick="sgPlay(this)">
+                            <img src="./img/v3/card12-MKT-CF-Lynn去背圖檔-251128-3-010.png" alt="Lynn心理諮商師">
+                            <div class="sg-play-btn"></div>
+                        </div>
+                        <div class="sg-mo-info">
+                            <p class="sg-tag">精選講座</p>
+                            <p class="sg-video-title">焦慮是因為太無聊？讓大腦重新忙起來</p>
+                            <p class="sg-video-desc">Lynn 心理諮商師</p>
+                        </div>
+                    </div>
+                    <div class="sg-mo-slide">
+                        <div class="sg-thumb" data-vid="XdXFQ3LHrr8" onclick="sgPlay(this)">
+                            <img src="./img/v3/card4-林茉晶講者圖框-250925-3-020.png" alt="林茉晶">
+                            <div class="sg-play-btn"></div>
+                        </div>
+                        <div class="sg-mo-info">
+                            <p class="sg-tag">名人分享</p>
+                            <p class="sg-video-title">打怪升等攻略：我的癌症療程日記</p>
+                            <p class="sg-video-desc">林茉晶 卵巢癌一期康復者</p>
+                        </div>
+                    </div>
+                    <div class="sg-mo-slide">
+                        <div class="sg-thumb" data-vid="D1pvMZokPsQ" onclick="sgPlay(this)">
+                            <img src="./img/v3/card7-MKT-CF-趙祖怡講者圖框-251002-3-010.png" alt="趙祖怡醫師">
+                            <div class="sg-play-btn"></div>
+                        </div>
+                        <div class="sg-mo-info">
+                            <p class="sg-tag">精選講座</p>
+                            <p class="sg-video-title">安寧不是一種放棄，而是一種醫療</p>
+                            <p class="sg-video-desc">趙祖怡醫師</p>
+                        </div>
+                    </div>
+                    <div class="sg-mo-slide">
+                        <div class="sg-thumb" data-vid="Pat1PAT7_u8" onclick="sgPlay(this)">
+                            <img src="./img/v3/card6-唐玲講者圖框-251001-3-010.png" alt="唐玲">
+                            <div class="sg-play-btn"></div>
+                        </div>
+                        <div class="sg-mo-info">
+                            <p class="sg-tag">名人分享</p>
+                            <p class="sg-video-title">璀璨蛻變心靈重生</p>
+                            <p class="sg-video-desc">唐玲 胃癌四期康復者</p>
+                        </div>
+                    </div>
+                    <div class="sg-mo-slide">
+                        <div class="sg-thumb" data-vid="pHpe-jmde94" onclick="sgPlay(this)">
+                            <img src="./img/v3/card2-姜冠宇去背圖檔-250925-3-020.png" alt="姜冠宇醫師">
+                            <div class="sg-play-btn"></div>
+                        </div>
+                        <div class="sg-mo-info">
+                            <p class="sg-tag">精選講座</p>
+                            <p class="sg-video-title">聯合國給我們的健康建議是什麼？</p>
+                            <p class="sg-video-desc">姜冠宇醫師</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 手機版縮圖列 -->
+            <div class="sg-mo-thumbstrip" id="sg-mo-thumbstrip">
+                <div class="sg-strip-item active" data-index="0"><img src="./img/v3/card5-呂隆昇去背圖檔-250925-3-020.png" alt="呂隆昇"></div>
+                <div class="sg-strip-item" data-index="1"><img src="./img/v3/card1-陳冀寬講者圖框-250930-3-010.png" alt="陳冀寬"></div>
+                <div class="sg-strip-item" data-index="2"><img src="./img/v3/card8-MKT-CF-鄧仲仁去背圖檔-251110-3-010.png" alt="鄧仲仁"></div>
+                <div class="sg-strip-item" data-index="3"><img src="./img/v3/card13-MKT-CF-黃翠華去背圖檔-251022-3-010.png" alt="黃翠華"></div>
+                <div class="sg-strip-item" data-index="4"><img src="./img/v3/card12-MKT-CF-Lynn去背圖檔-251128-3-010.png" alt="Lynn"></div>
+                <div class="sg-strip-item" data-index="5"><img src="./img/v3/card4-林茉晶講者圖框-250925-3-020.png" alt="林茉晶"></div>
+                <div class="sg-strip-item" data-index="6"><img src="./img/v3/card7-MKT-CF-趙祖怡講者圖框-251002-3-010.png" alt="趙祖怡"></div>
+                <div class="sg-strip-item" data-index="7"><img src="./img/v3/card6-唐玲講者圖框-251001-3-010.png" alt="唐玲"></div>
+                <div class="sg-strip-item" data-index="8"><img src="./img/v3/card2-姜冠宇去背圖檔-250925-3-020.png" alt="姜冠宇"></div>
+            </div>
+
+            <div class="sg-footer-mint"></div>
+
+            <script>
+            (function () {
+                var slides  = Array.from(document.querySelectorAll('#sg-mo-carousel .sg-mo-slide'));
+                var items   = Array.from(document.querySelectorAll('#sg-mo-thumbstrip .sg-strip-item'));
+                var current = 0;
+                var timer;
+
+                function goTo(n) {
+                    slides[current].classList.remove('active');
+                    items[current].classList.remove('active');
+                    current = (n + slides.length) % slides.length;
+                    slides[current].classList.add('active');
+                    items[current].classList.add('active');
+                    clearInterval(timer);
+                    timer = setInterval(function () { goTo(current + 1); }, 3000);
+                }
+
+                items.forEach(function (el) {
+                    el.addEventListener('click', function () {
+                        goTo(parseInt(el.getAttribute('data-index')));
+                    });
+                });
+
+                timer = setInterval(function () { goTo(current + 1); }, 3000);
+            })();
+            </script>
+        </section>
+        <!-- ===== /手機版 活動精華 ===== -->
+
 
         <section style="background-color:#07070700" id="mo-sec-c">
             <p class="mo-sc-title fs-h1">早鳥禮&抽獎活動<br>&癌友獨享資源</p>
@@ -1001,7 +1344,7 @@
                                 <img src="./img/v3/card8-MKT-CF-鄧仲仁去背圖檔-251110-3-010.png" />
                                 <img src="./img/v3/card9-MKT-CF-司徒惠康去背圖檔-251110-3-010.png" />
                                 <img src="./img/v3/card10-MKT-CF-林楚茵去背圖檔-251113-3-010.png" />
-                                <img src="./img/v3/card11-MKT-CF-黃翠華去背圖檔-251022-3-010.png" />
+                                <img src="./img/v3/card11-MKT-CF-沈靜芬去背圖檔-251128-3-010.png" />
                                 <img src="./img/v3/card12-MKT-CF-Lynn去背圖檔-251128-3-010.png" />
                                 <img src="./img/v3/card13-MKT-CF-黃翠華去背圖檔-251022-3-010.png" />
                             </div>
@@ -1297,6 +1640,8 @@
 
         </section>
 
+
+
     </main>
     <footer>
         <div class="footertop">
@@ -1566,4 +1911,4 @@
 
 </body>
 
-</html>
+</html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
